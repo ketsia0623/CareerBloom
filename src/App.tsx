@@ -34,6 +34,7 @@ function App() {
         <p>
           Meera Nambiar
           , Hamna Malik
+          , Ketsia Lumiere Donfack Ouwe
         </p>
         <a
           className="App-link"
