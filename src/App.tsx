@@ -33,6 +33,7 @@ function App() {
         </p>
         <p>
           Meera Nambiar
+          Hamna Malik
         </p>
         <a
           className="App-link"
