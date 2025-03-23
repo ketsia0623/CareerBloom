@@ -11,6 +11,7 @@ const HomePage = () => {
   const handleSubmitFeedback = () => alert("Feedback submitted! Thank you.");
 
   return (
+
     <Container style={{ backgroundColor: "#f0f8ff", padding: "20px", borderRadius: "10px" }}>
       {/* Navigation Bar */}
       <Navbar bg="dark" variant="dark" expand="lg" className="justify-content-center p-3 rounded">
@@ -25,6 +26,7 @@ const HomePage = () => {
       {/* Search Bar */}
       <Form className="mt-3">
         <Form.Control type="text" placeholder="Search" value={search} onChange={handleSearchChange} />
+
       </Form>
 
       {/* About Section - Largest Box */}
