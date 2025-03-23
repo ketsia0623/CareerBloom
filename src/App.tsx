@@ -50,7 +50,7 @@ const HomePage = () => {
           <Card style={{ height: "200px", backgroundColor: "#4caf50", color: "white" }}>
             <Card.Body>
               <Card.Title>Simple Quiz</Card.Title>
-              <Card.Text>Simple Quiz about goes here.......</Card.Text>
+              <Card.Text>Simple Quiz about goes here.....</Card.Text>
               <Button variant="light">Go</Button>
             </Card.Body>
           </Card>
@@ -59,7 +59,7 @@ const HomePage = () => {
           <Card style={{ height: "200px", backgroundColor: "#2196f3", color: "white" }}>
             <Card.Body>
               <Card.Title>Detailed Quiz</Card.Title>
-              <Card.Text>Detalied Quiz about goes here.......</Card.Text>
+              <Card.Text>Detalied Quiz about goes here.....</Card.Text>
               <Button variant="light">Go</Button>
             </Card.Body>
           </Card>
