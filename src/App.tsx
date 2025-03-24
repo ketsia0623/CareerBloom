@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Nav, Form, Button, Container, Row, Col, Card } from "react-bootstrap";
+import { Navbar, Nav, Form, Button, Container, Row, Col, Card, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const HomePage = () => {
@@ -11,24 +11,46 @@ const HomePage = () => {
   const handleSubmitFeedback = () => alert("Feedback submitted! Thank you.");
 
   return (
-
     <Container style={{ backgroundColor: "#f0f8ff", padding: "20px", borderRadius: "10px" }}>
-      {/* Navigation Bar */}
-      <Navbar bg="dark" variant="dark" expand="lg" className="justify-content-center p-3 rounded">
-        <Navbar.Brand href="#home" style={{ fontSize: "1.8rem", fontWeight: "bold", color: "#ffcc00" }}>Find Your Career!</Navbar.Brand>
-        <Nav className="mx-auto">
-          <Nav.Link href="#home" style={{ color: "#ffcc00" }}>Home</Nav.Link>
-          <Nav.Link href="#simple-quiz" style={{ color: "#ffcc00" }}>Simple Quiz</Nav.Link>
-          <Nav.Link href="#detailed-quiz" style={{ color: "#ffcc00" }}>Detailed Quiz</Nav.Link>
-        </Nav>
+      {/* Navigation Bar*/}
+      <Navbar bg="dark" variant="dark" expand="lg" className="p-3 rounded">
+        <div className="d-flex justify-content-between align-items-center w-100">
+          {/*Search bar */}
+          <Form className="d-flex">
+            <InputGroup>
+              <Form.Control 
+                type="text" 
+                placeholder="Search" 
+                value={search} 
+                onChange={handleSearchChange}
+                style={{ maxWidth: "200px", height: "45px" }}
+              />
+              <Button variant="outline-light" style={{ height: "45px" }}>
+                Search
+              </Button>
+            </InputGroup>
+          </Form>
+          
+          {/*Navigation*/}
+          <div className="text-center" style={{ position: "absolute", left: "100px", right:"50px"}}>
+            <Navbar.Brand href="#home" style={{ fontSize: "1.8rem", fontWeight: "bold", color: "#ffcc00", display: "block" }}>
+              Find Your Career!
+            </Navbar.Brand>
+            <Nav className="justify-content-center" style={{position: "relative", bottom: "10px"}}>
+              <Nav.Link href="#home" style={{ color: "#ffcc00" }}>Home</Nav.Link>
+              <Nav.Link href="#simple-quiz" style={{ color: "#ffcc00" }}>Simple Quiz</Nav.Link>
+              <Nav.Link href="#detailed-quiz" style={{ color: "#ffcc00" }}>Detailed Quiz</Nav.Link>
+            </Nav>
+          </div>
+          
+          {/*Login/Signup buttons */}
+          <div>
+            <Button variant="outline-light" className="me-2">Login</Button>
+            <Button variant="warning">Sign Up</Button>
+          </div>
+        </div>
       </Navbar>
       
-      {/* Search Bar */}
-      <Form className="mt-3">
-        <Form.Control type="text" placeholder="Search" value={search} onChange={handleSearchChange} />
-
-      </Form>
-
       {/* About Section - Largest Box */}
       <Row className="mt-4">
         <Col md={8}>
