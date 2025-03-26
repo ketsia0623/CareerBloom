@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Form, Button, Container, Row, Col, Card, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import emailjs from "emailjs-com";
 
 const HomePage = () => {
   const [search, setSearch] = useState("");
@@ -8,7 +9,23 @@ const HomePage = () => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
   const handleFeedbackChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setFeedback({ message: e.target.value });
-  const handleSubmitFeedback = () => alert("Feedback submitted! Thank you.");
+  const handleSubmitFeedback = (e: React.FormEvent) => {
+    e.preventDefault(); // Prevent page reload
+
+    emailjs.send(
+      "service_y1hprpf",  
+      "service_y1hprpf", 
+      { message: feedback.message }, 
+      "PBCMrYihrVFiKVBQ1"  // Replace with your actual Public Key
+    ).then((response) => {
+        alert("Feedback sent successfully!");
+        setFeedback({ message: "" }); // Clears the textarea after sending
+    }).catch((error) => {
+        alert("Error sending feedback.");
+        console.error("EmailJS Error:", error);
+    });
+  };
+
 
   return (
     <Container style={{ backgroundColor: "#f0f8ff", padding: "20px", borderRadius: "10px" }}>
@@ -58,7 +75,7 @@ const HomePage = () => {
             <Card.Body>
               <Card.Title style={{ fontSize: "1.5rem", fontWeight: "bold" }}>About</Card.Title>
               <Card.Text>
-                About goes here...........
+              Choosing the right career can feel overwhelming, but we’re here to help! Our career quiz is designed to guide you toward a profession that matches your skills, interests, and personality. Based on well-researched questions and career assessments, we analyze your responses to provide personalized career suggestions. Whether you're exploring options or looking for clarity, our quiz helps you discover paths that align with your strengths and passions. Start today and take the first step toward your future!
               </Card.Text>
             </Card.Body>
           </Card>
@@ -74,7 +91,7 @@ const HomePage = () => {
           <Card style={{ height: "200px", backgroundColor: "#4caf50", color: "white" }}>
             <Card.Body>
               <Card.Title>Simple Quiz</Card.Title>
-              <Card.Text>Simple Quiz about goes here.....</Card.Text>
+              <Card.Text>Our Simple Quiz is a quick and easy way to explore career options that suit you. It’s a great starting point for anyone looking for direction without spending too much time. Give it a try and discover potential career paths in minutes!</Card.Text>
               <Button variant="light">Go</Button>
             </Card.Body>
           </Card>
@@ -83,7 +100,7 @@ const HomePage = () => {
           <Card style={{ height: "200px", backgroundColor: "#2196f3", color: "white" }}>
             <Card.Body>
               <Card.Title>Detailed Quiz</Card.Title>
-              <Card.Text>Detalied Quiz about goes here.....</Card.Text>
+              <Card.Text>The Detailed Quiz provides an in-depth analysis of your skills, interests, and personality to help you find the best career path. </Card.Text>
               <Button variant="light">Go</Button>
             </Card.Body>
           </Card>
