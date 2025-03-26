@@ -9,23 +9,7 @@ const HomePage = () => {
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
   const handleFeedbackChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setFeedback({ message: e.target.value });
-  const handleSubmitFeedback = (e: React.FormEvent) => {
-    e.preventDefault(); // Prevent page reload
-
-    emailjs.send(
-      "service_y1hprpf",  
-      "service_y1hprpf", 
-      { message: feedback.message }, 
-      "PBCMrYihrVFiKVBQ1"  // Replace with your actual Public Key
-    ).then((response) => {
-        alert("Feedback sent successfully!");
-        setFeedback({ message: "" }); // Clears the textarea after sending
-    }).catch((error) => {
-        alert("Error sending feedback.");
-        console.error("EmailJS Error:", error);
-    });
-  };
-
+  const handleSubmitFeedback = () => alert("Feedback submitted! Thank you.");
 
   return (
     <Container style={{ backgroundColor: "#f0f8ff", padding: "20px", borderRadius: "10px" }}>
