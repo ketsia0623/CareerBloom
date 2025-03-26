@@ -52,7 +52,7 @@ const HomePage = () => {
         </div>
       </Navbar>
       
-      {/* About Section - Largest Box */}
+      {/* About Section */}
       <Row className="mt-4">
         <Col md={8}>
           <Card style={{ height: "300px", backgroundColor: "white", color: "#333" }}>
