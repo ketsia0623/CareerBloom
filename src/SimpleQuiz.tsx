@@ -105,6 +105,88 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           </Form>
         </Card>
 
+        {/* Question 3 */}
+        <Card className="mb-4 p-3">
+          <h5>3. How do you like to solve problems?</h5>
+          <img 
+            src="https://img-cdn.inc.com/image/upload/f_webp,c_fit,w_1920,q_auto/images/panoramic/getty_588960966_354337.jpg  " 
+            alt="Work Environment" 
+            style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+          />
+          <Form>
+            <Form.Check type="radio" label="🔬 Researching and experimenting" name="q1" />
+            <Form.Check type="radio" label="💬 Talking with people and finding solutions" name="q1" />
+            <Form.Check type="radio" label="🛠️ Building or fixing things" name="q1" />
+            <Form.Check type="radio" label="💡 Thinking creatively and coming up with new ideas" name="q1" />
+          </Form>
+        </Card>
+
+           {/* Question 4 */}
+           <Card className="mb-4 p-3">
+          <h5>4. Which school subject do you enjoy the most?</h5>
+          <img 
+            src="https://images.theconversation.com/files/49135/original/22qc7r28-1400667334.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=754&fit=clip " 
+            alt="Work Environment" 
+            style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+          />
+          <Form>
+            <Form.Check type="radio" label="🧮 Math & Science" name="q1" />
+            <Form.Check type="radio" label="🎭 Art & Music" name="q1" />
+            <Form.Check type="radio" label="📚 English & Social Studies" name="q1" />
+            <Form.Check type="radio" label="⚙️ Engineering & Technology" name="q1" />
+          </Form>
+        </Card>
+
+            {/* Question 5 */}
+            <Card className="mb-4 p-3">
+          <h5>5. Do you prefer working alone or with others?</h5>
+          <img 
+            src="https://www.freshbooks.com/wp-content/uploads/2021/10/what-is-teamwork.jpg " 
+            alt="Work Environment" 
+            style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+          />
+          <Form>
+            <Form.Check type="radio" label="🤝 I love teamwork and collaboration" name="q1" />
+            <Form.Check type="radio" label="👤 I prefer working independently" name="q1" />
+            <Form.Check type="radio" label="🏆 A mix of both works best for me" name="q1" />
+          </Form>
+        </Card>
+
+             {/* Question 6 */}
+             <Card className="mb-4 p-3">
+          <h5>6. What is most important to you in a career?</h5>
+          <img 
+            src="https://jobacle.com/wp-content/uploads/2021/06/career-21.png " 
+            alt="Work Environment" 
+            style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+          />
+          <Form>
+            <Form.Check type="radio" label="💰 High salary and stability" name="q1" />
+            <Form.Check type="radio" label="🎯 Creativity and self-expression" name="q1" />
+            <Form.Check type="radio" label="❤️ Making a positive impact on others" name="q1" />
+            <Form.Check type="radio" label="📈 Growth opportunities and leadership" name="q1" />
+          </Form>
+        </Card>
+
+                  {/* Question 7 */}
+                  <Card className="mb-4 p-3">
+          <h5>7. How much schooling are you willing to complete?</h5>
+          <img 
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRseLevPl_mBPTYYKV_Dc0ZicSQiTmIDwj9hQ&s" 
+            alt="Work Environment" 
+            style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+          />
+          <Form>
+            <Form.Check type="radio" label="🎓 High school diploma or technical training" name="q1" />
+            <Form.Check type="radio" label="📚 Bachelor’s degree (4 years)" name="q1" />
+            <Form.Check type="radio" label="🎓 Master’s degree or higher" name="q1" />
+            <Form.Check type="radio" label="🤷‍♂️ Not sure yet!" name="q1" />
+          </Form>
+        </Card>
+
+
+
+
    
         </Card.Body>
       </Card>
