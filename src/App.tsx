@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "./HomePage";
 import SimpleQuizPage from "./SimpleQuiz";
 import DetailedQuizPage from "./DetailedQuiz";
+import SimpleQuizResults from "./SimpleQuizResults";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -12,12 +13,13 @@ function App() {
     setCurrentPage(page);
   };
 
-  // render based on currentpage state
+  // render based on currentPage state
   return (
     <>
       {currentPage === "home" && <HomePage navigateTo={navigateTo} />}
       {currentPage === "simple-quiz" && <SimpleQuizPage navigateTo={navigateTo} />}
       {currentPage === "detailed-quiz" && <DetailedQuizPage navigateTo={navigateTo} />}
+      {currentPage === "simple-quiz-results" && <SimpleQuizResults navigateTo={navigateTo} />}
     </>
   );
 }
