@@ -2,13 +2,37 @@ import React, { useState } from "react";
 import { Navbar, Nav, Form, Button, Container, Row, Col, Card, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
+
+
 const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
     const [search, setSearch] = useState("");
     const [feedback, setFeedback] = useState({ message: "" });
   
+
+    const [apiKey, setApiKey] = useState<string>(() => {
+      const saved = localStorage.getItem("openai-api-key");
+      return saved ? JSON.parse(saved) : "";
+    });
+
+
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
     const handleFeedbackChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setFeedback({ message: e.target.value });
     const handleSubmitFeedback = () => alert("Feedback submitted! Thank you.");
+
+    const handleKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setApiKey(e.target.value);
+    };
+
+    const handleKeySubmit = () => {
+      localStorage.setItem("openai-api-key", JSON.stringify(apiKey));
+      alert("API Key saved!");
+      window.location.reload();
+    };
+
+ 
+
+
   
     return (
       <Container style={{ backgroundColor: "#f0f8ff", padding: "20px", borderRadius: "10px" }}>
@@ -139,8 +163,31 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
             </Card>
           </Col>
         </Row>
+
+
+
+
+        <footer className="bg-light py-4 mt-5 text-center">
+  <div className="container">
+    <Form.Label className="mb-2">OpenAI API Key:</Form.Label>
+    <div className="d-flex justify-content-center align-items-center flex-wrap gap-2">
+      <Form.Control
+        type="password"
+        placeholder="Insert API Key Here"
+        value={apiKey}
+        onChange={handleKeyChange}
+        style={{ maxWidth: "250px" }}
+      />
+      <Button variant="warning" onClick={handleKeySubmit}>
+        Save API Key
+      </Button>
+    </div>
+  </div>
+</footer>
       </Container>
     );
+
+    
 };
 
 export default HomePage;
