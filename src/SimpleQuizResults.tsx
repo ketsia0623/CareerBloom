@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Container, Card, Button, Navbar, Nav, Form, InputGroup } from "react-bootstrap";
+import { Button, Navbar, Nav, Form, InputGroup } from "react-bootstrap";
 
 const SimpleQuizResults: React.FC<{ navigateTo: (page: string) => void }> = ({ navigateTo }) => {
     const [search, setSearch] = useState("");
