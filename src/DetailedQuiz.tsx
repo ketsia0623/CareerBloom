@@ -68,7 +68,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
                 onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }}
                 style={{ color: "#ffcc00" }}
               >
-                Simple Quiz
+                Detailed Quiz
               </Nav.Link>
               <Nav.Link 
                 href="#" 
