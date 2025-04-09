@@ -62,10 +62,12 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
           </div>
 
           {/* Login/Signup buttons */}
+          {/*
           <div>
             <Button variant="outline-light" className="me-2">Login</Button>
             <Button variant="warning">Sign Up</Button>
           </div>
+          */}
         </div>
       </Navbar>
 
