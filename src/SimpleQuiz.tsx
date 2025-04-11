@@ -242,10 +242,10 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="🏆 Achieving goals and recognition" name="q6" onChange={() => handleAnswer(5)} />
-              <Form.Check type="radio" label="🤝 Making a difference in people's lives" name="q6" onChange={() => handleAnswer(5)} />
-              <Form.Check type="radio" label="💡 Learning and growing constantly" name="q6" onChange={() => handleAnswer(5)} />
-              <Form.Check type="radio" label="💰 Financial success and security" name="q6" onChange={() => handleAnswer(5)} />
+              <Form.Check type="radio" label="🏆 Achieving goals and recognition" name="q8" onChange={() => handleAnswer(7)} />
+              <Form.Check type="radio" label="🤝 Making a difference in people's lives" name="q8" onChange={() => handleAnswer(7)} />
+              <Form.Check type="radio" label="💡 Learning and growing constantly" name="q8" onChange={() => handleAnswer(7)} />
+              <Form.Check type="radio" label="💰 Financial success and security" name="q8" onChange={() => handleAnswer(7)} />
             </Form>
           </Card>
 
@@ -258,10 +258,26 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="🧠 I analyze the facts and data" name="q7" onChange={() => handleAnswer(6)} />
-              <Form.Check type="radio" label="❤️ I go with my gut or intuition" name="q7" onChange={() => handleAnswer(6)} />
-              <Form.Check type="radio" label="👂 I ask others for input and advice" name="q7" onChange={() => handleAnswer(6)} />
-              <Form.Check type="radio" label="⚖️ I weigh pros and cons carefully" name="q7" onChange={() => handleAnswer(6)} />
+              <Form.Check type="radio" label="🧠 I analyze the facts and data" name="q9" onChange={() => handleAnswer(8)} />
+              <Form.Check type="radio" label="❤️ I go with my gut or intuition" name="q9" onChange={() => handleAnswer(8)} />
+              <Form.Check type="radio" label="👂 I ask others for input and advice" name="q9" onChange={() => handleAnswer(8)} />
+              <Form.Check type="radio" label="⚖️ I weigh pros and cons carefully" name="q9" onChange={() => handleAnswer(8)} />
+            </Form>
+          </Card>
+
+          {/* Question 10 */}
+          <Card className="mb-4 p-3">
+            <h5>10. What kind of impact do you expect your career to have?</h5>
+            <img 
+              src="https://www.kindpng.com/picc/m/201-2011760_change-the-world-png-transparent-png.png" 
+              alt="Impact" 
+              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+            />
+            <Form>
+              <Form.Check type="radio" label="🌍 Solve global or environmental issues" name="q10" onChange={() => handleAnswer(9)} />
+              <Form.Check type="radio" label="👨‍🏫 Educate, inform, or inspire others" name="q10" onChange={() => handleAnswer(9)} />
+              <Form.Check type="radio" label="📈 Innovate and advance industries" name="q10" onChange={() => handleAnswer(9)} />
+              <Form.Check type="radio" label="🛡️ Improve people’s lives directly" name="q10" onChange={() => handleAnswer(9)} />
             </Form>
           </Card>
 
