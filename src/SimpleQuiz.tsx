@@ -233,6 +233,22 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
             </Form>
           </Card>
 
+          {/* Question 8 */}
+          <Card className="mb-4 p-3">
+            <h5>8. What motivates you the most in your work?</h5>
+            <img 
+              src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" 
+              alt="Motivation" 
+              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+            />
+            <Form>
+              <Form.Check type="radio" label="🏆 Achieving goals and recognition" name="q6" onChange={() => handleAnswer(5)} />
+              <Form.Check type="radio" label="🤝 Making a difference in people's lives" name="q6" onChange={() => handleAnswer(5)} />
+              <Form.Check type="radio" label="💡 Learning and growing constantly" name="q6" onChange={() => handleAnswer(5)} />
+              <Form.Check type="radio" label="💰 Financial success and security" name="q6" onChange={() => handleAnswer(5)} />
+            </Form>
+          </Card>
+
 
 
         </Card.Body>
