@@ -91,6 +91,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
       </Navbar>
 
       {/* Sticky Progress Bar */}
+      {/*
       <div 
         style={{
           position: "sticky",
@@ -102,6 +103,20 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
         }}>
         <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
       </div>
+          */}
+      <div 
+        style={{
+          position: "fixed",         // makes it stay at the top of the viewport
+          top: "0",                  // flush with the top of the page
+          width: "100%",             // full width
+          zIndex: 1040,              // stays above most content
+          backgroundColor: "#fff",
+          padding: "10px 0",
+          boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
+        }}>
+        <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
+      </div>
+
 
       {/* Modal Notification */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -117,6 +132,8 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
           </Button>
         </Modal.Footer>
       </Modal>
+
+
 
       {/* Detailed Quiz Content */}
       <Card className="mt-4" style={{ marginTop: "150px" }}> {/* Adjusted top margin to avoid overlap with fixed elements */}

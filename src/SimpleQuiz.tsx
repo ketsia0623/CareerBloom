@@ -91,32 +91,50 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
       </Navbar>
 
       {/* Sticky Progress Bar */}
-      <div 
-        style={{
-          position: "sticky",
-          top: "56px",  
-          zIndex: 1040,  // Ensures the progress bar stays below the navbar
-          backgroundColor: "#fff",
-          padding: "10px 0",
-          boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
-        }}>
-        <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
-      </div>
+            
+            <div 
+              style={{
+                position: "sticky",
+                top: "56px",  
+                zIndex: 1040,  // Ensures the progress bar stays below the navbar
+                backgroundColor: "#fff",
+                padding: "10px 0",
+                boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
+              }}>
+              <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
+            </div>
+        
+            {/*
+            <div 
+  style={{
+    position: "fixed",
+    top: "0",
+    left: "0",
+    width: "100%",
+    zIndex: 500, // move above the navbar
+    backgroundColor: "#fff",
+    padding: "10px 0",
+    boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
+  }}>
+  <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
+</div>
+              */}
 
-      {/* Modal Notification */}
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>🎉 You Finished the Quiz!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body> 
-          <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={() => navigateTo("simple-quiz-results")}>
-            See Results
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      
+            {/* Modal Notification */}
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
+              <Modal.Header closeButton>
+                <Modal.Title>🎉 You Finished the Quiz!</Modal.Title>
+              </Modal.Header>
+              <Modal.Body> 
+                <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="primary" onClick={() => navigateTo("detailed-quiz-results")}>
+                  See Results
+                </Button>
+              </Modal.Footer>
+            </Modal>
 
       {/* Simple Quiz Content */}
       <Card className="mt-4" style={{ marginTop: "150px" }}> {/* Adjusted top margin to avoid overlap with fixed elements */}
