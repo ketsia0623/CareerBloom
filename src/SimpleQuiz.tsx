@@ -249,6 +249,21 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
             </Form>
           </Card>
 
+          {/* Question 9 */}
+          <Card className="mb-4 p-3">
+            <h5>9. How do you usually make decisions?</h5>
+            <img 
+              src="https://cdn.pixabay.com/photo/2018/03/11/09/05/decision-3214711_1280.jpg" 
+              alt="Decision Making" 
+              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+            />
+            <Form>
+              <Form.Check type="radio" label="🧠 I analyze the facts and data" name="q7" onChange={() => handleAnswer(6)} />
+              <Form.Check type="radio" label="❤️ I go with my gut or intuition" name="q7" onChange={() => handleAnswer(6)} />
+              <Form.Check type="radio" label="👂 I ask others for input and advice" name="q7" onChange={() => handleAnswer(6)} />
+              <Form.Check type="radio" label="⚖️ I weigh pros and cons carefully" name="q7" onChange={() => handleAnswer(6)} />
+            </Form>
+          </Card>
 
 
         </Card.Body>
