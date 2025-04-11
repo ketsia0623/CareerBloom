@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Card, Button, Navbar, Nav, Form, InputGroup, ProgressBar, Modal } from "react-bootstrap";
 
-const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
+const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
   const [answers, setAnswers] = useState<number>(0); // Track the number of answered questions
   const [questionAnswered, setQuestionAnswered] = useState<boolean[]>(new Array(7).fill(false)); // Track if each question has been answered
@@ -68,7 +68,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
                 onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }}
                 style={{ color: "#ffcc00" }}
               >
-                Detailed Quiz
+                Simple Quiz
               </Nav.Link>
               <Nav.Link 
                 href="#" 
@@ -112,16 +112,16 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={() => navigateTo("simple-quiz-results")}>
+          <Button variant="primary" onClick={() => navigateTo("detailed-quiz-results")}>
             See Results
           </Button>
         </Modal.Footer>
       </Modal>
 
-      {/* Simple Quiz Content */}
+      {/* Detailed Quiz Content */}
       <Card className="mt-4" style={{ marginTop: "150px" }}> {/* Adjusted top margin to avoid overlap with fixed elements */}
         <Card.Body>
-          <Card.Title>Simple Career Quiz</Card.Title>
+          <Card.Title>Detailed Career Quiz</Card.Title>
 
           {/* Question 1 */}
           <Card className="mb-4 p-3">
@@ -149,4 +149,4 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
   );
 };
 
-export default SimpleQuizPage;
+export default DetailedQuizPage;
