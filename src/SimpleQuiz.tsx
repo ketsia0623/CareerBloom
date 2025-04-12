@@ -18,7 +18,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
     }
   };
 
-  const progress = (answers / 7) * 100; // Calculate progress based on answered questions
+  const progress = (answers / 10) * 100; // Calculate progress based on answered questions
 
   // Trigger modal when progress reaches 100%
   if (progress === 100 && !showModal) {
@@ -130,7 +130,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
                 <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="primary" onClick={() => navigateTo("detailed-quiz-results")}>
+                <Button variant="primary" onClick={() => navigateTo("simple-quiz-results")}>
                   See Results
                 </Button>
               </Modal.Footer>
