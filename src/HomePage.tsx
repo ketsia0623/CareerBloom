@@ -74,7 +74,9 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
                 </Nav.Link>
                 <Nav.Link 
                   href="#" 
+                
                   onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }}
+                  
                   style={{ color: "#ffcc00" }}
                 >
                   Simple Quiz
