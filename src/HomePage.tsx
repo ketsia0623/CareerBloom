@@ -260,3 +260,5 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
 };
 
 export default HomePage;
+
+
