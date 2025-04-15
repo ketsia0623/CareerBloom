@@ -41,7 +41,7 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
 
     // Determine theme button colors based on current theme
     const themeButtonVariant = theme === "default" ? "outline-light" : "outline-dark";
-    const themeButtonText = theme === "default" ? "🌸 Pink Theme" : "💼 Default Theme";
+    const themeButtonText = theme === "default" ? "🌸 Change Theme" : "💼 Change Theme";
   
     return (
       <Container style={{ 
