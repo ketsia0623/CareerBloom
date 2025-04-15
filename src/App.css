@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Pinky theme */
+body.pinky {
+  background-color: #fff0f5;
+  color: #800040;
+}
+
+body.pinky .navbar {
+  background-color: #ffb6c1 !important;
+}
+
+body.pinky .progress-bar {
+  background-color: #ff66b2 !important;
+}
+
+body.pinky input, 
+body.pinky textarea,
+body.pinky select {
+  background-color: #ffe6f2 !important;
+  color: #800040 !important;
+  border-color: #ff99cc !important;
+}
+
+body.pinky button.btn-primary {
+  background-color: #ff66b2 !important;
+  border-color: #ff4d94 !important;
+}
+
+body.pinky button.btn-danger {
+  background-color: #ff1a75 !important;
+  border-color: #e60059 !important;
+}
+
