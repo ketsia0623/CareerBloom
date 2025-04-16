@@ -269,7 +269,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>10. What kind of impact do you expect your career to have?</h5>
             <img 
-              src="https://www.kindpng.com/picc/m/201-2011760_change-the-world-png-transparent-png.png" 
+              src="https://media.istockphoto.com/id/979622962/photo/hand-putting-wooden-cube-block-on-blue-background-with-word-career-and-copy-space-for-your.jpg?s=612x612&w=0&k=20&c=WtIeJMPJ-6ozlnpyps0R2TLwMSTYFtWAT6yRBQymRSg=" 
               alt="Impact" 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
