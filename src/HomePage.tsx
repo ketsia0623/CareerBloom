@@ -70,7 +70,7 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
         {/* Audio Element */}
         <audio ref={audioRef} src={backgroundMusic} loop />
         
-        {/* Navigation Bar */}
+        {/* Navigation Bar - RESTRUCTURED */}
         <Navbar 
           bg={theme === "default" ? "dark" : "light"} 
           variant={theme === "default" ? "dark" : "light"} 
@@ -161,6 +161,7 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
           </Container>
         </Navbar>
         
+        {/* Rest of the component remains the same */}
         {/* About Section */}
         <Row className="mt-4">
           <Col md={8}>
