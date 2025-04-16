@@ -246,8 +246,22 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
 
           {/* Question 3 */}
           <Form.Group controlId="dropdown1">
-            
+
           <Form.Label>Select a field you're interested in:</Form.Label>
+
+          <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
+              alt="Activities"
+              style={{
+                width: "200%",
+                maxWidth: "450px",
+                height: "auto",
+                display: "block",
+                margin: "10px auto",
+                borderRadius: "8px",
+              }}
+            />
+
           <Form.Select onChange={(e) => handleAnswer(1, e.target.value)}>
             <option value="">-- Choose one --</option>
             <option value="Tech">Technology</option>
