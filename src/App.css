@@ -37,8 +37,39 @@
   }
 }
 
+/* Default Theme */
+body.default {
+  background-color: #f0f8ff;
+  color: #333;
+}
 
-/* Pinky theme */
+body.default .navbar {
+  background-color: #343a40 !important;
+}
+
+body.default .progress-bar {
+  background-color: #007bff !important;
+}
+
+body.default input, 
+body.default textarea,
+body.default select {
+  background-color: white !important;
+  color: #333 !important;
+  border-color: #ced4da !important;
+}
+
+body.default button.btn-primary {
+  background-color: #007bff !important;
+  border-color: #0069d9 !important;
+}
+
+body.default button.btn-danger {
+  background-color: #dc3545 !important;
+  border-color: #c82333 !important;
+}
+
+/* Pinky Theme */
 body.pinky {
   background-color: #fff0f5;
   color: #800040;
@@ -70,3 +101,12 @@ body.pinky button.btn-danger {
   border-color: #e60059 !important;
 }
 
+body.pinky .card {
+  background-color: #ffcce6 !important;
+  color: #800040 !important;
+}
+
+body.default .card {
+  background-color: white !important;
+  color: #333 !important;
+}

@@ -1,36 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Card, Button, Navbar, Nav, Form, InputGroup, ProgressBar, Modal } from "react-bootstrap";
 
 const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
-  const [answers, setAnswers] = useState<number>(0); // Track the number of answered questions
-  const [questionAnswered, setQuestionAnswered] = useState<boolean[]>(new Array(7).fill(false)); // Track if each question has been answered
-  const [showModal, setShowModal] = useState(false); // State for showing the modal notification
+  const [answers, setAnswers] = useState<number>(0);
+  const [questionAnswered, setQuestionAnswered] = useState<boolean[]>(new Array(7).fill(false));
+  const [showModal, setShowModal] = useState(false);
+  const [theme, setTheme] = useState<string>(() => {
+    const savedTheme = localStorage.getItem("site-theme");
+    return savedTheme ? savedTheme : "default";
+  });
+
+  useEffect(() => {
+    document.body.className = theme;
+    localStorage.setItem("site-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "default" ? "pinky" : "default");
+  };
+
+  const themeButtonVariant = theme === "default" ? "outline-light" : "outline-dark";
+  const themeButtonText = theme === "default" ? "🌸 Change Theme" : "💼 Change Theme";
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
 
   const handleAnswer = (questionIndex: number) => {
     if (!questionAnswered[questionIndex]) {
-      setAnswers(answers + 1); // Increment the answered question count
+      setAnswers(answers + 1);
       const updatedAnswered = [...questionAnswered];
-      updatedAnswered[questionIndex] = true; // Mark the current question as answered
+      updatedAnswered[questionIndex] = true;
       setQuestionAnswered(updatedAnswered);
     }
   };
 
-  const progress = (answers / 10) * 100; // Calculate progress based on answered questions
+  const progress = (answers / 10) * 100;
 
-  // Trigger modal when progress reaches 100%
   if (progress === 100 && !showModal) {
     setShowModal(true);
   }
 
   return (
     <Container>
-      {/* Navigation Bar */}
-      <Navbar bg="dark" variant="dark" expand="lg" className="p-3 rounded" style={{ zIndex: 1050 }}>
+      <Navbar bg={theme === "default" ? "dark" : "light"} variant={theme === "default" ? "dark" : "light"} expand="lg" className="p-3 rounded" style={{ zIndex: 1050 }}>
         <div className="d-flex justify-content-between align-items-center w-100">
-          {/* Search bar */}
           <Form className="d-flex">
             <InputGroup>
               <Form.Control 
@@ -40,18 +53,17 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
                 onChange={handleSearchChange}
                 style={{ maxWidth: "200px", height: "45px" }}
               />
-              <Button variant="outline-light" style={{ height: "45px" }}>
+              <Button variant={theme === "default" ? "outline-light" : "outline-dark"} style={{ height: "45px" }}>
                 Search
               </Button>
             </InputGroup>
           </Form>
           
-          {/* Navigation */}
           <div className="text-center" style={{ position: "absolute", left: "100px", right:"50px"}}>
             <Navbar.Brand 
               href="#" 
               onClick={(e) => { e.preventDefault(); navigateTo("home"); }}
-              style={{ fontSize: "1.8rem", fontWeight: "bold", color: "#ffcc00", display: "block", cursor: "pointer" }}
+              style={{ fontSize: "1.8rem", fontWeight: "bold", color: theme === "default" ? "#ffcc00" : "#ff66b2", display: "block", cursor: "pointer" }}
             >
               Find Your Career!
             </Navbar.Brand>
@@ -59,85 +71,64 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               <Nav.Link 
                 href="#" 
                 onClick={(e) => { e.preventDefault(); navigateTo("home"); }}
-                style={{ color: "#ffcc00" }}
+                style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
               >
                 Home
               </Nav.Link>
               <Nav.Link 
                 href="#" 
                 onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }}
-                style={{ color: "#ffcc00" }}
+                style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
               >
                 Simple Quiz
               </Nav.Link>
               <Nav.Link 
                 href="#" 
                 onClick={(e) => { e.preventDefault(); navigateTo("detailed-quiz"); }}
-                style={{ color: "#ffcc00" }}
+                style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
               >
                 Detailed Quiz
               </Nav.Link>
             </Nav>
           </div>
 
-          {/* Login/Signup buttons */}
-          {/*
-          <div>
-            <Button variant="outline-light" className="me-2">Login</Button>
-            <Button variant="warning">Sign Up</Button>
-          </div>
-          */}
+          <Button 
+            variant={themeButtonVariant}
+            onClick={toggleTheme}
+            className="me-2"
+            style={{ zIndex: 10 }}
+          >
+            {themeButtonText}
+          </Button>
         </div>
       </Navbar>
 
-      {/* Sticky Progress Bar */}
-            
-            <div 
-              style={{
-                position: "sticky",
-                top: "56px",  
-                zIndex: 1040,  // Ensures the progress bar stays below the navbar
-                backgroundColor: "#fff",
-                padding: "10px 0",
-                boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
-              }}>
-              <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
-            </div>
-        
-            {/*
-            <div 
-  style={{
-    position: "fixed",
-    top: "0",
-    left: "0",
-    width: "100%",
-    zIndex: 500, // move above the navbar
-    backgroundColor: "#fff",
-    padding: "10px 0",
-    boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
-  }}>
-  <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
-</div>
-              */}
+      <div style={{
+          position: "sticky",
+          top: "56px",  
+          zIndex: 1040,
+          backgroundColor: "#fff",
+          padding: "10px 0",
+          boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"
+        }}>
+        <ProgressBar now={progress} label={`${Math.round(progress)}%`} />
+      </div>
 
-      
-            {/* Modal Notification */}
-            <Modal show={showModal} onHide={() => setShowModal(false)}>
-              <Modal.Header closeButton>
-                <Modal.Title>🎉 You Finished the Quiz!</Modal.Title>
-              </Modal.Header>
-              <Modal.Body> 
-                <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="primary" onClick={() => navigateTo("simple-quiz-results")}>
-                  See Results
-                </Button>
-              </Modal.Footer>
-            </Modal>
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>🎉 You Finished the Quiz!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body> 
+          <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => navigateTo("simple-quiz-results")}>
+            See Results
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
-      {/* Simple Quiz Content */}
-      <Card className="mt-4" style={{ marginTop: "150px" }}> {/* Adjusted top margin to avoid overlap with fixed elements */}
+      <Card className="mt-4" style={{ marginTop: "150px" }}>
         <Card.Body>
           <Card.Title>Simple Career Quiz</Card.Title>
 
@@ -295,11 +286,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               <Form.Check type="radio" label="🌍 Solve global or environmental issues" name="q10" onChange={() => handleAnswer(9)} />
               <Form.Check type="radio" label="👨‍🏫 Educate, inform, or inspire others" name="q10" onChange={() => handleAnswer(9)} />
               <Form.Check type="radio" label="📈 Innovate and advance industries" name="q10" onChange={() => handleAnswer(9)} />
-              <Form.Check type="radio" label="🛡️ Improve people’s lives directly" name="q10" onChange={() => handleAnswer(9)} />
+              <Form.Check type="radio" label="🛡️ Improve people's lives directly" name="q10" onChange={() => handleAnswer(9)} />
             </Form>
           </Card>
-
-
         </Card.Body>
       </Card>
     </Container>
