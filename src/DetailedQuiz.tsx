@@ -244,6 +244,19 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
             </Form>
           </Card>
 
+          {/* Question 3 */}
+          <Form.Group controlId="dropdown1">
+            
+          <Form.Label>Select a field you're interested in:</Form.Label>
+          <Form.Select onChange={(e) => handleAnswer(1, e.target.value)}>
+            <option value="">-- Choose one --</option>
+            <option value="Tech">Technology</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Business">Business</option>
+            <option value="Education">Education</option>
+          </Form.Select>
+        </Form.Group>
+
 
 
         </Card.Body>
