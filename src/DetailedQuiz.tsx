@@ -147,7 +147,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
 
           {/* Example Question - Repeat and change index for more */}
           <Card className="mb-4 p-3">
-            <h5>1. What type of work environment do you prefer?</h5>
+            <h5>1. Describe a project or task that made you feel proud. What were you doing?</h5>
             <img
               src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg"
               alt="Work Environment"
