@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const backgroundMusic = require("C:/Users/Meera/CISC275/CISC275_Starter/src/music/song.mp3");
 const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
+    // State declarations remain the same
     const [search, setSearch] = useState("");
     const [feedback, setFeedback] = useState({ message: "" });
     const [theme, setTheme] = useState<string>(() => {
@@ -57,7 +58,6 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
     };
 
     // Determine theme button colors based on current theme
-    //random comment
     const themeButtonVariant = theme === "default" ? "outline-light" : "outline-dark";
     const themeButtonText = theme === "default" ? "🌸 Change Theme" : "💼 Change Theme";
   
@@ -70,87 +70,95 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
         {/* Audio Element */}
         <audio ref={audioRef} src={backgroundMusic} loop />
         
-        {/* Navigation Bar*/}
+        {/* Navigation Bar */}
         <Navbar 
           bg={theme === "default" ? "dark" : "light"} 
           variant={theme === "default" ? "dark" : "light"} 
           expand="lg" 
           className="p-3 rounded"
         >
-          <div className="d-flex justify-content-between align-items-center w-100">
-            {/*Search bar */}
-            <Form className="d-flex">
-              <InputGroup>
-                <Form.Control 
-                  type="text" 
-                  placeholder="Search" 
-                  value={search} 
-                  onChange={handleSearchChange}
-                  style={{ maxWidth: "200px", height: "45px" }}
-                />
+          <Container fluid>
+            <Row className="w-100">
+              {/* Left column - Search */}
+              <Col xs={12} md={3} className="d-flex align-items-center">
+                <Form className="d-flex">
+                  <InputGroup>
+                    <Form.Control 
+                      type="text" 
+                      placeholder="Search" 
+                      value={search} 
+                      onChange={handleSearchChange}
+                      style={{ maxWidth: "200px", height: "45px" }}
+                    />
+                    <Button 
+                      variant={theme === "default" ? "outline-light" : "outline-dark"} 
+                      style={{ height: "45px" }}
+                    >
+                      Search
+                    </Button>
+                  </InputGroup>
+                </Form>
+              </Col>
+              
+              {/* Middle column - Title and Navigation */}
+              <Col xs={12} md={6} className="text-center">
+                <div>
+                  <Navbar.Brand 
+                    style={{ 
+                      fontSize: "1.8rem", 
+                      fontWeight: "bold", 
+                      color: theme === "default" ? "#ffcc00" : "#ff66b2", 
+                      display: "block"
+                    }}
+                  >
+                    Find Your Career!
+                  </Navbar.Brand>
+                  <Nav className="justify-content-center">
+                    <Nav.Link 
+                      href="#" 
+                      onClick={(e) => { e.preventDefault(); navigateTo("home"); }}
+                      style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
+                    >
+                      Home
+                    </Nav.Link>
+                    <Nav.Link 
+                      href="#" 
+                      onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }}
+                      style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
+                    >
+                      Simple Quiz
+                    </Nav.Link>
+                    <Nav.Link 
+                      href="#" 
+                      onClick={(e) => { e.preventDefault(); navigateTo("detailed-quiz"); }}
+                      style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
+                    >
+                      Detailed Quiz
+                    </Nav.Link>
+                  </Nav>
+                </div>
+              </Col>
+              
+              {/* Right column - Theme and Music buttons */}
+              <Col xs={12} md={3} className="d-flex justify-content-end align-items-center">
                 <Button 
-                  variant={theme === "default" ? "outline-light" : "outline-dark"} 
-                  style={{ height: "45px" }}
+                  variant={themeButtonVariant}
+                  onClick={toggleTheme}
+                  className="me-2"
+                  style={{ zIndex: 10 }}
                 >
-                  Search
+                  {themeButtonText}
                 </Button>
-              </InputGroup>
-            </Form>
-            
-            {/*Navigation*/}
-            <div className="text-center" style={{ position: "absolute", left: "100px", right:"50px"}}>
-              <Navbar.Brand 
-                style={{ 
-                  fontSize: "1.8rem", 
-                  fontWeight: "bold", 
-                  color: theme === "default" ? "#ffcc00" : "#ff66b2", 
-                  display: "block"
-                }}
-              >
-                Find Your Career!
-              </Navbar.Brand>
-              <Nav className="justify-content-center" style={{position: "relative", bottom: "10px"}}>
-                <Nav.Link 
-                  href="#" 
-                  onClick={(e) => { e.preventDefault(); navigateTo("home"); }}
-                  style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
+                <Button 
+                  variant={themeButtonVariant}
+                  onClick={toggleMusic}
+                  style={{ zIndex: 10 }}
                 >
-                  Home
-                </Nav.Link>
-                <Nav.Link 
-                  href="#" 
-                  onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }}
-                  style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
-                >
-                  Simple Quiz
-                </Nav.Link>
-                <Nav.Link 
-                  href="#" 
-                  onClick={(e) => { e.preventDefault(); navigateTo("detailed-quiz"); }}
-                  style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
-                >
-                  Detailed Quiz
-                </Nav.Link>
-              </Nav>
-            </div>
-            
-            {/* Theme Toggle Button and Music Control */}
-            <div>
-              <Button 
-                variant={themeButtonVariant}
-                onClick={toggleTheme}
-                className="me-2"
-              >
-                {themeButtonText}
-              </Button>
-              <Button 
-                variant={themeButtonVariant}
-                onClick={toggleMusic}
-              >
-                {isPlaying ? "🔇 Mute Music" : "🔊 Play Music"}
-              </Button>
-            </div>
-          </div>
+                  {isPlaying ? "🔇 Mute Music" : "🔊 Play Music"}
+                </Button>
+              </Col>
+            </Row>
+          </Container>
         </Navbar>
         
         {/* About Section */}
@@ -170,12 +178,12 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
             </Card>
           </Col>
           <Col md={4}>
-  <img 
-    src={theme === "default" ? "https://www.cfnc.org/media/lnrf5gv0/career-sign-post.jpg" : "https://www.shutterstock.com/image-photo/begin-new-career-word-on-260nw-2329671447.jpg"} 
-    alt="Career Path" 
-    style={{ width: "100%", height: "300px", objectFit: "cover", borderRadius: "10px" }} 
-  />
-</Col>
+            <img 
+              src={theme === "default" ? "https://www.cfnc.org/media/lnrf5gv0/career-sign-post.jpg" : "https://www.shutterstock.com/image-photo/begin-new-career-word-on-260nw-2329671447.jpg"} 
+              alt="Career Path" 
+              style={{ width: "100%", height: "300px", objectFit: "cover", borderRadius: "10px" }} 
+            />
+          </Col>
         </Row>
         
         {/* Quizzes Section - Medium Sized Boxes */}
