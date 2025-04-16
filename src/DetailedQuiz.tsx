@@ -20,6 +20,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
   // for the checkbox questions of the detailed quiz
   const [activities, setActivities] = useState<string[]>([]);
 
+  // checkbox question(2)
   const toggleActivity = (activity: string, checked: boolean) => {
     if (checked) {
       setActivities([...activities, activity]);
