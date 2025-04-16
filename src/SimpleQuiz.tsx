@@ -253,7 +253,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>9. How do you usually make decisions?</h5>
             <img 
-              src="https://cdn.pixabay.com/photo/2018/03/11/09/05/decision-3214711_1280.jpg" 
+              src="https://media.istockphoto.com/id/1355658095/vector/concept-of-various-paths.jpg?s=612x612&w=0&k=20&c=Ggy1PJDGR7tSzTvewl6VwgAH7cPQrrw089HSYyswMuE=" 
               alt="Decision Making" 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
