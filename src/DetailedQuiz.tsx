@@ -219,7 +219,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
             <Card className="mb-4 p-3">
             <h5>4. Which of these activities do you enjoy the most?</h5>
             <img
-              src="https://cdn.pixabay.com/photo/2020/03/05/17/55/activities-4904249_960_720.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
               alt="Activities"
               style={{
                 width: "200%",
