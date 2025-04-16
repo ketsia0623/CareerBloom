@@ -11,11 +11,24 @@ import {
   Modal,
 } from "react-bootstrap";
 
+
 const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
   const [answers, setAnswers] = useState<string[]>(new Array(7).fill(""));
   const [questionAnswered, setQuestionAnswered] = useState<boolean[]>(new Array(7).fill(false));
   const [showModal, setShowModal] = useState(false);
+  // for the checkbox questions of the detailed quiz
+  const [activities, setActivities] = useState<string[]>([]);
+
+  // checkbox question(2)
+  const toggleActivity = (activity: string, checked: boolean) => {
+    if (checked) {
+      setActivities([...activities, activity]);
+    } else {
+      setActivities(activities.filter((a) => a !== activity));
+    }
+  };
+
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearch(e.target.value);
@@ -139,15 +152,16 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
           </Button>
         </Modal.Footer>
       </Modal>
+      
 
       {/* Quiz Content */}
       <Card className="mt-4" style={{ marginTop: "150px" }}>
         <Card.Body>
           <Card.Title>Detailed Career Quiz</Card.Title>
 
-          {/* Example Question - Repeat and change index for more */}
+          {/* Question 1 */}
           <Card className="mb-4 p-3">
-            <h5>1. What type of work environment do you prefer?</h5>
+            <h5>1. Describe a project or task that made you feel proud. What were you doing?</h5>
             <img
               src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg"
               alt="Work Environment"
@@ -172,12 +186,92 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
             </Form>
           </Card>
 
-          {/* For the other questions */}
-          {/* You can copy the above block and change: 
-              - `h5` text
-              - `img src`
-              - `value={answers[1]}`, `handleAnswer(1, e.target.value)` and so on 
-          */}
+          
+          {/* Question 2 */}
+
+           <Card className="mb-4 p-3">
+            <h5>1. Describe a project or task that made you feel proud. What were you doing?</h5>
+            <img
+              src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg"
+              alt="Work Environment"
+              style={{
+                width: "200%",
+                maxWidth: "450px",
+                height: "auto",
+                display: "block",
+                margin: "10px auto",
+                borderRadius: "8px",
+              }}
+            />
+            <Form>
+              <Form.Group controlId="q1">
+                <Form.Control
+                  type="text"
+                  placeholder="Type your answer here..."
+                  value={answers[0]}
+                  onChange={(e) => handleAnswer(0, e.target.value)}
+                />
+              </Form.Group>
+            </Form>
+          </Card>
+
+          {/* Question 2 */ }
+            <Card className="mb-4 p-3">
+            <h5>2. Which of these activities do you enjoy the most?</h5>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
+              alt="Activities"
+              style={{
+                width: "200%",
+                maxWidth: "450px",
+                height: "auto",
+                display: "block",
+                margin: "10px auto",
+                borderRadius: "8px",
+              }}
+            />
+            <Form>
+              <Form.Group controlId="q4">
+                {["Solving puzzles", "Writing stories", "Teaching others", "Fixing/building things", "Organizing events"].map((activity) => (
+                  <Form.Check
+                    key={activity}
+                    type="checkbox"
+                    label={activity}
+                    onChange={(e) => toggleActivity(activity, e.target.checked)}
+                  />
+                ))}
+              </Form.Group>
+            </Form>
+          </Card>
+
+          {/* Question 3 */}
+          <Form.Group controlId="dropdown1">
+
+          <Form.Label>Select a field you're interested in:</Form.Label>
+
+          <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
+              alt="Activities"
+              style={{
+                width: "200%",
+                maxWidth: "450px",
+                height: "auto",
+                display: "block",
+                margin: "10px auto",
+                borderRadius: "8px",
+              }}
+            />
+
+          <Form.Select onChange={(e) => handleAnswer(1, e.target.value)}>
+            <option value="">-- Choose one --</option>
+            <option value="Tech">Technology</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Business">Business</option>
+            <option value="Education">Education</option>
+          </Form.Select>
+        </Form.Group>
+
+
 
         </Card.Body>
       </Card>
