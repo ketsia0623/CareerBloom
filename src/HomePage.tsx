@@ -100,14 +100,11 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
             {/*Navigation*/}
             <div className="text-center" style={{ position: "absolute", left: "100px", right:"50px"}}>
               <Navbar.Brand 
-                href="#" 
-                onClick={(e) => { e.preventDefault(); navigateTo("home"); }}
                 style={{ 
                   fontSize: "1.8rem", 
                   fontWeight: "bold", 
                   color: theme === "default" ? "#ffcc00" : "#ff66b2", 
-                  display: "block", 
-                  cursor: "pointer" 
+                  display: "block"
                 }}
               >
                 Find Your Career!
