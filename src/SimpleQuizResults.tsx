@@ -24,67 +24,64 @@ const SimpleQuizResults: React.FC<{ navigateTo: (page: string) => void }> = ({ n
   
     return (
       <div>
-        <Navbar bg={theme === "default" ? "dark" : "light"} variant={theme === "default" ? "dark" : "light"} expand="lg" className="p-3 rounded">
-          <div className="d-flex justify-content-between align-items-center w-100">
-            <Form className="d-flex">
-              <InputGroup>
-                <Form.Control 
-                  type="text" 
-                  placeholder="Search" 
-                  value={search} 
-                  onChange={handleSearchChange}
-                  style={{ maxWidth: "200px", height: "45px" }}
-                />
-                <Button variant={theme === "default" ? "outline-light" : "outline-dark"} style={{ height: "45px" }}>
-                  Search
-                </Button>
-              </InputGroup>
-            </Form>
-            
-            <div className="text-center" style={{ position: "absolute", left: "100px", right:"50px"}}>
-              <Navbar.Brand 
-                href="#" 
-                onClick={(e) => { e.preventDefault(); navigateTo("home"); }}
-                style={{ fontSize: "1.8rem", fontWeight: "bold", color: theme === "default" ? "#ffcc00" : "#ff66b2", display: "block", cursor: "pointer" }}
-              >
-                Find Your Career!
-              </Navbar.Brand>
-              <Nav className="justify-content-center" style={{position: "relative", bottom: "10px"}}>
-                <Nav.Link 
-                  href="#" 
-                  onClick={(e) => { e.preventDefault(); navigateTo("home"); }}
-                  style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
-                >
-                  Home
-                </Nav.Link>
-                <Nav.Link 
-                  href="#" 
-                  onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }}
-                  style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
-                >
-                  Simple Quiz
-                </Nav.Link>
-                <Nav.Link 
-                  href="#" 
-                  onClick={(e) => { e.preventDefault(); navigateTo("detailed-quiz"); }}
-                  style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
-                >
-                  Detailed Quiz
-                </Nav.Link>
-              </Nav>
-            </div>
-
-            <div>
-              <Button 
-                variant={themeButtonVariant}
-                onClick={toggleTheme}
-                className="me-2"
-              >
-                {themeButtonText}
-              </Button>
-            </div>
-          </div>
-        </Navbar>
+        <Navbar bg={theme === "default" ? "dark" : "light"} variant={theme === "default" ? "dark" : "light"} expand="lg" className="p-3 rounded" style={{ zIndex: 1050 }}>
+                        <div className="d-flex justify-content-between align-items-center w-100">
+                          <Form className="d-flex">
+                            <InputGroup>
+                              <Form.Control 
+                                type="text" 
+                                placeholder="Search" 
+                                value={search} 
+                                onChange={handleSearchChange}
+                                style={{ maxWidth: "200px", height: "45px" }}
+                              />
+                              <Button variant={theme === "default" ? "outline-light" : "outline-dark"} style={{ height: "45px" }}>
+                                Search
+                              </Button>
+                            </InputGroup>
+                          </Form>
+                          
+                          <div className="text-center" style={{ position: "absolute", left: "100px", right:"50px"}}>
+                            <Navbar.Brand 
+                              style={{ fontSize: "1.8rem", fontWeight: "bold", color: theme === "default" ? "#ffcc00" : "#ff66b2", display: "block", cursor: "pointer" }}
+                            >
+                              Find Your Career!
+                            </Navbar.Brand>
+                            <Nav className="justify-content-center" style={{position: "relative", bottom: "10px"}}>
+                              <Nav.Link 
+                                href="#" 
+                                onClick={(e) => { e.preventDefault(); navigateTo("home"); }}
+                                style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
+                              >
+                                Home
+                              </Nav.Link>
+                              <Nav.Link 
+                                href="#" 
+                                onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }}
+                                style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
+                              >
+                                Simple Quiz
+                              </Nav.Link>
+                              <Nav.Link 
+                                href="#" 
+                                onClick={(e) => { e.preventDefault(); navigateTo("detailed-quiz"); }}
+                                style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
+                              >
+                                Detailed Quiz
+                              </Nav.Link>
+                            </Nav>
+                          </div>
+                
+                          <Button 
+                            variant={themeButtonVariant}
+                            onClick={toggleTheme}
+                            className="me-2"
+                            style={{ zIndex: 10 }}
+                          >
+                            {themeButtonText}
+                          </Button>
+                        </div>
+                      </Navbar>
 
         <div className="container mt-5">
           <Card style={{ backgroundColor: theme === "default" ? "white" : "#ffcce6", color: theme === "default" ? "#333" : "#800040" }}>
