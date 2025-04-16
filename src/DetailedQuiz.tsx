@@ -187,7 +187,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
           </Card>
 
           
-          {/* Question 1 */}
+          {/* Question 2 */}
 
            <Card className="mb-4 p-3">
             <h5>1. Describe a project or task that made you feel proud. What were you doing?</h5>
@@ -217,7 +217,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
 
           {/* Question 2 */ }
             <Card className="mb-4 p-3">
-            <h5>4. Which of these activities do you enjoy the most?</h5>
+            <h5>2. Which of these activities do you enjoy the most?</h5>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
               alt="Activities"
