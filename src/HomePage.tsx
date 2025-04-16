@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Navbar, Nav, Form, Button, Container, Row, Col, Card, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+//import backgroundMusic from "../music/song.mp3";
 
+
+const backgroundMusic = require("C:/Users/Meera/CISC275/CISC275_Starter/src/music/song.mp3");
 const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
     const [search, setSearch] = useState("");
     const [feedback, setFeedback] = useState({ message: "" });
@@ -14,6 +17,20 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
       const saved = localStorage.getItem("openai-api-key");
       return saved ? JSON.parse(saved) : "";
     });
+
+    // Audio state and ref
+    const audioRef = useRef<HTMLAudioElement>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    // Toggle music playback
+    const toggleMusic = () => {
+      if (isPlaying) {
+        audioRef.current?.pause();
+      } else {
+        audioRef.current?.play();
+      }
+      setIsPlaying(!isPlaying);
+    };
 
     // Apply theme when it changes
     useEffect(() => {
@@ -50,6 +67,9 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
         padding: "20px", 
         borderRadius: "10px" 
       }}>
+        {/* Audio Element */}
+        <audio ref={audioRef} src={backgroundMusic} loop />
+        
         {/* Navigation Bar*/}
         <Navbar 
           bg={theme === "default" ? "dark" : "light"} 
@@ -117,7 +137,7 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
               </Nav>
             </div>
             
-            {/* Theme Toggle Button */}
+            {/* Theme Toggle Button and Music Control */}
             <div>
               <Button 
                 variant={themeButtonVariant}
@@ -125,6 +145,12 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
                 className="me-2"
               >
                 {themeButtonText}
+              </Button>
+              <Button 
+                variant={themeButtonVariant}
+                onClick={toggleMusic}
+              >
+                {isPlaying ? "🔇 Mute Music" : "🔊 Play Music"}
               </Button>
             </div>
           </div>
