@@ -190,7 +190,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
           {/* Question 2 */}
 
            <Card className="mb-4 p-3">
-            <h5>1. Describe a project or task that made you feel proud. What were you doing?</h5>
+            <h5>2. Describe a project or task that made you feel proud. What were you doing?</h5>
             <img
               src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg"
               alt="Work Environment"
@@ -215,9 +215,9 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
             </Form>
           </Card>
 
-          {/* Question 2 */ }
+          {/* Question 3 */ }
             <Card className="mb-4 p-3">
-            <h5>2. Which of these activities do you enjoy the most?</h5>
+            <h5>3. Which of these activities do you enjoy the most?</h5>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
               alt="Activities"
@@ -244,10 +244,10 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
             </Form>
           </Card>
 
-          {/* Question 3 */}
+          {/* Question 4 */}
           <Form.Group controlId="dropdown1">
 
-          <Form.Label>Select a field you're interested in:</Form.Label>
+          <Form.Label>4. Select a field you're interested in:</Form.Label>
 
           <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
