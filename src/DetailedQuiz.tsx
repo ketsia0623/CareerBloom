@@ -156,35 +156,35 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
 
       {/* Quiz Content */}
       <Card className="mt-4" style={{ marginTop: "150px" }}>
-        <Card.Body>
-          <Card.Title>Detailed Career Quiz</Card.Title>
+      <Card.Body>
+      <Card.Title>Detailed Career Quiz</Card.Title>
 
-          {/* Question 1 */}
-          <Card className="mb-4 p-3">
-            <h5>1. Describe a project or task that made you feel proud. What were you doing?</h5>
-            <img
-              src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg"
-              alt="Work Environment"
-              style={{
-                width: "200%",
-                maxWidth: "450px",
-                height: "auto",
-                display: "block",
-                margin: "10px auto",
-                borderRadius: "8px",
-              }}
-            />
-            <Form>
-              <Form.Group controlId="q1">
-                <Form.Control
-                  type="text"
-                  placeholder="Type your answer here..."
-                  value={answers[0]}
-                  onChange={(e) => handleAnswer(0, e.target.value)}
-                />
-              </Form.Group>
-            </Form>
-          </Card>
+      {/* Question 1 */}
+      <Card className="mb-4 p-3">
+      <h5>1. Describe a project or task that made you feel proud. What were you doing?</h5>
+      <img
+        src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg"
+        alt="Work Environment"
+        style={{
+          width: "200%",
+          maxWidth: "450px",
+          height: "auto",
+          display: "block",
+          margin: "10px auto",
+          borderRadius: "8px",
+        }}
+      />
+      <Form>
+        <Form.Group controlId="q1">
+          <Form.Control
+            type="text"
+            placeholder="Type your answer here..."
+            value={answers[0]}
+            onChange={(e) => handleAnswer(0, e.target.value)}
+          />
+        </Form.Group>
+      </Form>
+      </Card>
 
           
           {/* Question 2 */}
