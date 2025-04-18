@@ -187,7 +187,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
       </Card>
 
           
-          {/* Question 2 (New Original) */}
+          {/* Question 2 */}
           <Card className="mb-4 p-3">
             <h5>2. What would your ideal workday look like from start to finish?</h5>
             <img
@@ -215,8 +215,8 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
           </Card>
 
 
-          {/* Question 3 */ }
-            <Card className="mb-4 p-3">
+           {/* Question 3 (Checkbox format adapted to same structure) */}
+          <Card className="mb-4 p-3">
             <h5>3. Which of these activities do you enjoy the most?</h5>
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
@@ -231,7 +231,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
               }}
             />
             <Form>
-              <Form.Group controlId="q4">
+              <Form.Group controlId="q3">
                 {["Solving puzzles", "Writing stories", "Teaching others", "Fixing/building things", "Organizing events"].map((activity) => (
                   <Form.Check
                     key={activity}
