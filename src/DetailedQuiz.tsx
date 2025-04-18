@@ -248,7 +248,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
           <Card className="mb-4 p-3">
             <h5>4. Select a field you're most interested in exploring:</h5>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
+              src="https://www.moneycrashers.com/wp-content/uploads/2023/05/college-education-career-major-field.jpg"
               alt="Career Fields"
               style={{
                 width: "200%",
@@ -313,7 +313,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
           <Card className="mb-4 p-3">
           <h5>6. How confident are you in your communication skills?</h5>
           <img
-            src="https://images.unsplash.com/photo-1573497019412-3b2b5f2bb1ec"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB_sJs-LqpR320HyogFRCtUYkOTTYOjXtVAw&s"
             alt="Communication"
             style={{
               width: "200%",
@@ -332,6 +332,32 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
                 max={10}
                 value={answers[5] || 5}
                 onChange={(e) => handleAnswer(5, e.target.value)}
+              />
+            </Form.Group>
+          </Form>
+        </Card>
+
+          <Card className="mb-4 p-3">
+          <h5>8. What is one change you'd love to make in the world through your work?</h5>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeeWOxP0jGkDnN9wVPkBN1eNYKoTxpraWcOQ&s"
+            alt="World Impact"
+            style={{
+              width: "200%",
+              maxWidth: "450px",
+              height: "auto",
+              display: "block",
+              margin: "10px auto",
+              borderRadius: "8px",
+            }}
+          />
+          <Form>
+            <Form.Group controlId="q8">
+              <Form.Control
+                type="text"
+                placeholder="Type your answer here..."
+                value={answers[7]}
+                onChange={(e) => handleAnswer(7, e.target.value)}
               />
             </Form.Group>
           </Form>
