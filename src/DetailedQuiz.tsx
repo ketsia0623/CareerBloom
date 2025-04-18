@@ -309,6 +309,35 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
         </Card>
 
 
+          {/* Question 6 */ }
+          <Card className="mb-4 p-3">
+          <h5>6. How confident are you in your communication skills?</h5>
+          <img
+            src="https://images.unsplash.com/photo-1573497019412-3b2b5f2bb1ec"
+            alt="Communication"
+            style={{
+              width: "200%",
+              maxWidth: "450px",
+              height: "auto",
+              display: "block",
+              margin: "10px auto",
+              borderRadius: "8px",
+            }}
+          />
+          <Form>
+            <Form.Group controlId="q6">
+              <Form.Label>Confidence Level: {answers[5]}</Form.Label>
+              <Form.Range
+                min={0}
+                max={10}
+                value={answers[5] || 5}
+                onChange={(e) => handleAnswer(5, e.target.value)}
+              />
+            </Form.Group>
+          </Form>
+        </Card>
+
+
 
         </Card.Body>
       </Card>
