@@ -215,7 +215,7 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
           </Card>
 
 
-           {/* Question 3 (Checkbox format adapted to same structure) */}
+           {/* Question 3 */}
           <Card className="mb-4 p-3">
             <h5>3. Which of these activities do you enjoy the most?</h5>
             <img
@@ -244,14 +244,12 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
             </Form>
           </Card>
 
-          {/* Question 4 */}
-          <Form.Group controlId="dropdown1">
-
-          <Form.Label>4. Select a field you're interested in:</Form.Label>
-
-          <img
+          {/* Question 4 (Dropdown reformatted to match structure) */}
+          <Card className="mb-4 p-3">
+            <h5>4. Select a field you're most interested in exploring:</h5>
+            <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
-              alt="Activities"
+              alt="Career Fields"
               style={{
                 width: "200%",
                 maxWidth: "450px",
@@ -261,15 +259,54 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
                 borderRadius: "8px",
               }}
             />
+            <Form>
+              <Form.Group controlId="q4">
+                <Form.Select
+                  value={answers[3]}
+                  onChange={(e) => handleAnswer(3, e.target.value)}
+                >
+                  <option value="">-- Choose one --</option>
+                  <option value="Technology">Technology</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Business">Business</option>
+                  <option value="Education">Education</option>
+                  <option value="Creative Arts">Creative Arts</option>
+                </Form.Select>
+              </Form.Group>
+            </Form>
+          </Card>
 
-          <Form.Select onChange={(e) => handleAnswer(1, e.target.value)}>
-            <option value="">-- Choose one --</option>
-            <option value="Tech">Technology</option>
-            <option value="Healthcare">Healthcare</option>
-            <option value="Business">Business</option>
-            <option value="Education">Education</option>
-          </Form.Select>
-        </Form.Group>
+          <Card className="mb-4 p-3">
+          <h5>5. How much do you value job stability when choosing a career?</h5>
+          <img
+            src="https://business.time.com/wp-content/uploads/sites/2/2012/12/103498240-e1355344822863.jpg?w=720&h=480&crop=1"
+            alt="Job Stability"
+            style={{
+              width: "200%",
+              maxWidth: "450px",
+              height: "auto",
+              display: "block",
+              margin: "10px auto",
+              borderRadius: "8px",
+            }}
+          />
+          <Form>
+            <Form.Group controlId="q5">
+              <div className="d-flex justify-content-between px-2">
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <Form.Check
+                    inline
+                    key={num}
+                    type="radio"
+                    label={num}
+                    name="stability-scale"
+                    onChange={() => handleAnswer(4, num.toString())}
+                  />
+                ))}
+              </div>
+            </Form.Group>
+          </Form>
+        </Card>
 
 
 
