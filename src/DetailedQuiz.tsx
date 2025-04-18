@@ -187,13 +187,12 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
       </Card>
 
           
-          {/* Question 2 */}
-
-           <Card className="mb-4 p-3">
-            <h5>2. Describe a project or task that made you feel proud. What were you doing?</h5>
+          {/* Question 2 (New Original) */}
+          <Card className="mb-4 p-3">
+            <h5>2. What would your ideal workday look like from start to finish?</h5>
             <img
-              src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg"
-              alt="Work Environment"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR22xSa_jDnIqzGSOsWrXo24YqVoO7zVzE8pg&s"
+              alt="Ideal Day"
               style={{
                 width: "200%",
                 maxWidth: "450px",
@@ -204,16 +203,17 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
               }}
             />
             <Form>
-              <Form.Group controlId="q1">
+              <Form.Group controlId="q2">
                 <Form.Control
                   type="text"
                   placeholder="Type your answer here..."
-                  value={answers[0]}
-                  onChange={(e) => handleAnswer(0, e.target.value)}
+                  value={answers[1]}
+                  onChange={(e) => handleAnswer(1, e.target.value)}
                 />
               </Form.Group>
             </Form>
           </Card>
+
 
           {/* Question 3 */ }
             <Card className="mb-4 p-3">
