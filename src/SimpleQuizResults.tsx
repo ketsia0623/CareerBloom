@@ -1,107 +1,92 @@
-import React, { useState, useEffect } from "react";
-import { Button, Navbar, Nav, Form, InputGroup, Card } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Card, Spinner, Container, ListGroup } from "react-bootstrap";
 
-const SimpleQuizResults: React.FC<{ navigateTo: (page: string) => void }> = ({ navigateTo }) => {
-    const [search, setSearch] = useState("");
-    const [theme, setTheme] = useState<string>(() => {
-      const savedTheme = localStorage.getItem("site-theme");
-      return savedTheme ? savedTheme : "default";
-    });
+interface SimpleQuizResultsProps {
+  navigateTo: (page: string) => void;
+}
 
-    useEffect(() => {
-      document.body.className = theme;
-      localStorage.setItem("site-theme", theme);
-    }, [theme]);
+const SimpleQuizResults: React.FC<SimpleQuizResultsProps> = ({ navigateTo }) => {
+  const [quizAnswers, setQuizAnswers] = useState<{ [key: string]: string }>({});
+  const [jobSuggestions, setJobSuggestions] = useState<string>("");
+  const [loading, setLoading] = useState(true);
 
-    const toggleTheme = () => {
-      setTheme(theme === "default" ? "pinky" : "default");
-    };
+  useEffect(() => {
+    const storedAnswers = localStorage.getItem("quizAnswers");
+    const apiKey = JSON.parse(localStorage.getItem("MYKEY") || "null");
+    
+    
+    console.log("Stored Answers:", storedAnswers); // Debugging
+    console.log("API Key:", apiKey); // Debugging
 
-    const themeButtonVariant = theme === "default" ? "outline-light" : "outline-dark";
-    const themeButtonText = theme === "default" ? "🌸 Change Theme" : "💼 Change Theme";
-  
-    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
-  
-    return (
-      <div>
-        <Navbar bg={theme === "default" ? "dark" : "light"} variant={theme === "default" ? "dark" : "light"} expand="lg" className="p-3 rounded" style={{ zIndex: 1050 }}>
-                        <div className="d-flex justify-content-between align-items-center w-100">
-                          <Form className="d-flex">
-                            <InputGroup>
-                              <Form.Control 
-                                type="text" 
-                                placeholder="Search" 
-                                value={search} 
-                                onChange={handleSearchChange}
-                                style={{ maxWidth: "200px", height: "45px" }}
-                              />
-                              <Button variant={theme === "default" ? "outline-light" : "outline-dark"} style={{ height: "45px" }}>
-                                Search
-                              </Button>
-                            </InputGroup>
-                          </Form>
-                          
-                          <div className="text-center" style={{ position: "absolute", left: "100px", right:"50px"}}>
-                            <Navbar.Brand 
-                              style={{ fontSize: "1.8rem", fontWeight: "bold", color: theme === "default" ? "#ffcc00" : "#ff66b2", display: "block", cursor: "pointer" }}
-                            >
-                              Find Your Career!
-                            </Navbar.Brand>
-                            <Nav className="justify-content-center" style={{position: "relative", bottom: "10px"}}>
-                              <Nav.Link 
-                                href="#" 
-                                onClick={(e) => { e.preventDefault(); navigateTo("home"); }}
-                                style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
-                              >
-                                Home
-                              </Nav.Link>
-                              <Nav.Link 
-                                href="#" 
-                                onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }}
-                                style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
-                              >
-                                Simple Quiz
-                              </Nav.Link>
-                              <Nav.Link 
-                                href="#" 
-                                onClick={(e) => { e.preventDefault(); navigateTo("detailed-quiz"); }}
-                                style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}
-                              >
-                                Detailed Quiz
-                              </Nav.Link>
-                            </Nav>
-                          </div>
-                
-                          <Button 
-                            variant={themeButtonVariant}
-                            onClick={toggleTheme}
-                            className="me-2"
-                            style={{ zIndex: 10 }}
-                          >
-                            {themeButtonText}
-                          </Button>
-                        </div>
-                      </Navbar>
+    if (storedAnswers && apiKey) {
+      const parsedAnswers = JSON.parse(storedAnswers);
+      setQuizAnswers(parsedAnswers);
 
-        <div className="container mt-5">
-          <Card style={{ backgroundColor: theme === "default" ? "white" : "#ffcce6", color: theme === "default" ? "#333" : "#800040" }}>
-            <Card.Body>
-              <h1>Congratulations!</h1>
-              <p>You have completed the quiz.</p>
-              <h2>Your Results</h2>
-              <Card.Text>
-                Based on your answers, we recommend careers in:
-                <ul>
-                  <li>Software Development</li>
-                  <li>Graphic Design</li>
-                  <li>Project Management</li>
-                </ul>
-              </Card.Text>
-            </Card.Body>
-          </Card>
+      const prompt = `A person answered the following about themselves: ${Object.values(parsedAnswers).join(", ")}. Based on this, suggest 3 careers that would be a great fit and give a short reason for each.`;
+
+      // Make the API call
+      fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: prompt }],
+          temperature: 0.7,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("API Response:", data); // Debugging
+          const text = data.choices?.[0]?.message?.content || "No response.";
+          setJobSuggestions(text);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error("Error fetching from OpenAI:", err); // Debugging
+          setJobSuggestions("There was a problem generating your results.");
+          setLoading(false);
+        });
+    } else {
+      console.error("No quiz answers or API key found.");
+      setLoading(false);
+      setJobSuggestions("Missing quiz answers or API key.");
+    }
+  }, []);
+
+  return (
+    <Container className="py-4">
+      <h1>Quiz Results</h1>
+      <p>See your personalized job recommendations below.</p>
+
+      {loading ? (
+        <div className="text-center mt-4">
+          <Spinner animation="border" />
+          <p className="mt-2">Generating your results...</p>
         </div>
-      </div>
-    );
+      ) : (
+        <>
+          <Card className="p-4 shadow-sm mt-4">
+            <h4>Recommended Jobs:</h4>
+            <p>{jobSuggestions}</p>
+          </Card>
+
+          <Card className="p-4 shadow-sm mt-4">
+            <h5>Your Answers:</h5>
+            <ListGroup variant="flush" className="mt-3">
+              {Object.entries(quizAnswers).map(([question, answer], index) => (
+                <ListGroup.Item key={index}>
+                  <strong>{question}:</strong> {answer}
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Card>
+        </>
+      )}
+    </Container>
+  );
 };
 
 export default SimpleQuizResults;

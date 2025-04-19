@@ -5,6 +5,7 @@ import SimpleQuizPage from "./SimpleQuiz";
 import DetailedQuizPage from "./DetailedQuiz";
 import SimpleQuizResults from "./SimpleQuizResults";
 
+
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
 
