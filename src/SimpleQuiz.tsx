@@ -4,7 +4,8 @@ import { Container, Card, Button, Navbar, Nav, Form, InputGroup, ProgressBar, Mo
 const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
   const [answers, setAnswers] = useState<number>(0);
-  const [questionAnswered, setQuestionAnswered] = useState<boolean[]>(new Array(7).fill(false));
+  const [questionAnswered, setQuestionAnswered] = useState<boolean[]>(new Array(10).fill(false));
+  const [userAnswers, setUserAnswers] = useState<(string | null)[]>(new Array(10).fill(null));
   const [showModal, setShowModal] = useState(false);
   const [theme, setTheme] = useState<string>(() => {
     const savedTheme = localStorage.getItem("site-theme");
@@ -25,7 +26,11 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
 
-  const handleAnswer = (questionIndex: number) => {
+  const handleAnswer = (questionIndex: number, answer: string) => {
+    const updatedAnswers = [...userAnswers];
+    updatedAnswers[questionIndex] = answer;
+    setUserAnswers(updatedAnswers);
+  
     if (!questionAnswered[questionIndex]) {
       setAnswers(answers + 1);
       const updatedAnswered = [...questionAnswered];
@@ -34,11 +39,20 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
     }
   };
 
+
+
   const progress = (answers / 10) * 100;
 
   if (progress === 100 && !showModal) {
     setShowModal(true);
   }
+
+  useEffect(() => {
+    if (progress === 100 && !showModal) {
+      localStorage.setItem("simpleQuizAnswers", JSON.stringify(userAnswers));
+      setShowModal(true);
+    }
+  }, [progress, showModal, userAnswers]);
 
   return (
     <Container>
@@ -139,10 +153,10 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="🏢 Office-based" name="q1" onChange={() => handleAnswer(0)} />
-              <Form.Check type="radio" label="🌿 Outdoors" name="q1" onChange={() => handleAnswer(0)} />
-              <Form.Check type="radio" label="🏡 Remote / Work from home" name="q1" onChange={() => handleAnswer(0)} />
-              <Form.Check type="radio" label="🚀 Fast-paced / Hands-on" name="q1" onChange={() => handleAnswer(0)} />
+              <Form.Check type="radio" label="🏢 Office-based" name="q1"   onChange={() => handleAnswer(0, "Office-based")}  />
+              <Form.Check type="radio" label="🌿 Outdoors" name="q1"   onChange={() => handleAnswer(0, "Outdoors")}  />
+              <Form.Check type="radio" label="🏡 Remote / Work from home" name="q1"  onChange={() => handleAnswer(0, "Remote / Work from home")}  />
+              <Form.Check type="radio" label="🚀 Fast-paced / Hands-on" name="q1"  onChange={() => handleAnswer(0, "Fast-paced / Hands-on")}  />
             </Form>
           </Card>
 
@@ -155,10 +169,10 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="💻 Solving problems with technology" name="q2" onChange={() => handleAnswer(1)} />
-              <Form.Check type="radio" label="🎨 Creating art, music, or designs" name="q2" onChange={() => handleAnswer(1)} />
-              <Form.Check type="radio" label="🏥 Helping people in need" name="q2" onChange={() => handleAnswer(1)} />
-              <Form.Check type="radio" label="📊 Managing projects or businesses" name="q2" onChange={() => handleAnswer(1)} />
+              <Form.Check type="radio" label="💻 Solving problems with technology" name="q2" onChange={() => handleAnswer(1, "Solving problems with technology")}  /> 
+              <Form.Check type="radio" label="🎨 Creating art, music, or designs" name="q2" onChange={() => handleAnswer(1, "Creating art, music, or designs")} />
+              <Form.Check type="radio" label="🏥 Helping people in need" name="q2" onChange={() => handleAnswer(1, "Helping people in need")} />
+              <Form.Check type="radio" label="📊 Managing projects or businesses" name="q2" onChange={() => handleAnswer(1, "Managing projects or businesses")} />
             </Form>
           </Card>
 
@@ -171,10 +185,10 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="🔬 Researching and experimenting" name="q3" onChange={() => handleAnswer(2)} />
-              <Form.Check type="radio" label="💬 Talking with people and finding solutions" name="q3" onChange={() => handleAnswer(2)} />
-              <Form.Check type="radio" label="🛠️ Building or fixing things" name="q3" onChange={() => handleAnswer(2)} />
-              <Form.Check type="radio" label="💡 Thinking creatively and coming up with new ideas" name="q3" onChange={() => handleAnswer(2)} />
+              <Form.Check type="radio" label="🔬 Researching and experimenting" name="q3"onChange={() => handleAnswer(2, "Researching and experimenting")} />
+              <Form.Check type="radio" label="💬 Talking with people and finding solutions" name="q3" onChange={() => handleAnswer(2, "Talking with people and finding solutions")} />
+              <Form.Check type="radio" label="🛠️ Building or fixing things" name="q3" onChange={() => handleAnswer(2, "Building or fixing things")} />
+              <Form.Check type="radio" label="💡 Thinking creatively and coming up with new ideas" name="q3" onChange={() => handleAnswer(2, "Thinking creatively and coming up with new ideas")} />
             </Form>
           </Card>
 
@@ -187,10 +201,10 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="🧮 Math & Science" name="q4" onChange={() => handleAnswer(3)} />
-              <Form.Check type="radio" label="🎭 Art & Music" name="q4" onChange={() => handleAnswer(3)} />
-              <Form.Check type="radio" label="📚 English & Social Studies" name="q4" onChange={() => handleAnswer(3)} />
-              <Form.Check type="radio" label="⚙️ Engineering & Technology" name="q4" onChange={() => handleAnswer(3)} />
+              <Form.Check type="radio" label="🧮 Math & Science" name="q4" onChange={()=> handleAnswer(3, "Math & Science")} />
+              <Form.Check type="radio" label="🎭 Art & Music" name="q4" onChange={() => handleAnswer(3, "Art & Music")} />
+              <Form.Check type="radio" label="📚 English & Social Studies" name="q4" onChange={() => handleAnswer(3, "English & Social Studies")} />
+              <Form.Check type="radio" label="⚙️ Engineering & Technology" name="q4" onChange={() => handleAnswer(3, "Engineering & Technology")} />
             </Form>
           </Card>
 
@@ -203,9 +217,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="🤝 I love teamwork and collaboration" name="q5" onChange={() => handleAnswer(4)} />
-              <Form.Check type="radio" label="👤 I prefer working independently" name="q5" onChange={() => handleAnswer(4)} />
-              <Form.Check type="radio" label="🏆 A mix of both works best for me" name="q5" onChange={() => handleAnswer(4)} />
+              <Form.Check type="radio" label="🤝 I love teamwork and collaboration" name="q5" onChange={() => handleAnswer(4, "I love teamwork and collaboration")} />
+              <Form.Check type="radio" label="👤 I prefer working independently" name="q5" onChange={() => handleAnswer(4, "I prefer working independently")}  />
+              <Form.Check type="radio" label="🏆 A mix of both works best for me" name="q5" onChange={() => handleAnswer(4, "A mix of both works best for me")}  />
             </Form>
           </Card>
 
@@ -218,10 +232,10 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="💰 High salary and stability" name="q6" onChange={() => handleAnswer(5)} />
-              <Form.Check type="radio" label="👨‍👩‍👧‍👦 Work-life balance and flexibility" name="q6" onChange={() => handleAnswer(5)} />
-              <Form.Check type="radio" label="📚 Opportunities for growth and learning" name="q6" onChange={() => handleAnswer(5)} />
-              <Form.Check type="radio" label="🌍 Making a positive impact" name="q6" onChange={() => handleAnswer(5)} />
+              <Form.Check type="radio" label="💰 High salary and stability" name="q6" onChange={()=> handleAnswer(5, "High salary and stability")} />
+              <Form.Check type="radio" label="👨‍👩‍👧‍👦 Work-life balance and flexibility" name="q6" onChange={() => handleAnswer(5, "Work-life balance and flexibility")}/>
+              <Form.Check type="radio" label="📚 Opportunities for growth and learning" name="q6" onChange={() => handleAnswer(5, "Opportunities for growth and learning")} />
+              <Form.Check type="radio" label="🌍 Making a positive impact" name="q6" onChange={() => handleAnswer(5, "Making a positive impact")} />
             </Form>
           </Card>
 
@@ -234,9 +248,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="⏰ Fixed hours (9 to 5)" name="q7" onChange={() => handleAnswer(6)} />
-              <Form.Check type="radio" label="🕐 Flexible hours" name="q7" onChange={() => handleAnswer(6)} />
-              <Form.Check type="radio" label="💼 No set schedule" name="q7" onChange={() => handleAnswer(6)} />
+              <Form.Check type="radio" label="⏰ Fixed hours (9 to 5)" name="q7" onChange={() => handleAnswer(6, "Fixed hours (9 to 5)")} />
+              <Form.Check type="radio" label="🕐 Flexible hours" name="q7" onChange={() => handleAnswer(6, "Flexible hours")}  />
+              <Form.Check type="radio" label="💼 No set schedule" name="q7" onChange={() => handleAnswer(6, "No set schedule")}  />
             </Form>
           </Card>
 
@@ -249,10 +263,10 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="🏆 Achieving goals and recognition" name="q8" onChange={() => handleAnswer(7)} />
-              <Form.Check type="radio" label="🤝 Making a difference in people's lives" name="q8" onChange={() => handleAnswer(7)} />
-              <Form.Check type="radio" label="💡 Learning and growing constantly" name="q8" onChange={() => handleAnswer(7)} />
-              <Form.Check type="radio" label="💰 Financial success and security" name="q8" onChange={() => handleAnswer(7)} />
+              <Form.Check type="radio" label="🏆 Achieving goals and recognition" name="q8" onChange={() => handleAnswer(7, "Achieving goals and recognition")}  />
+              <Form.Check type="radio" label="🤝 Making a difference in people's lives" name="q8" onChange={() => handleAnswer(7, "Making a difference in people's lives")} />
+              <Form.Check type="radio" label="💡 Learning and growing constantly" name="q8" onChange={() => handleAnswer(7, " Learning and growing constantly")} />
+              <Form.Check type="radio" label="💰 Financial success and security" name="q8" onChange={() => handleAnswer(7, " Financial success and security")} />
             </Form>
           </Card>
 
@@ -265,10 +279,10 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="🧠 I analyze the facts and data" name="q9" onChange={() => handleAnswer(8)} />
-              <Form.Check type="radio" label="❤️ I go with my gut or intuition" name="q9" onChange={() => handleAnswer(8)} />
-              <Form.Check type="radio" label="👂 I ask others for input and advice" name="q9" onChange={() => handleAnswer(8)} />
-              <Form.Check type="radio" label="⚖️ I weigh pros and cons carefully" name="q9" onChange={() => handleAnswer(8)} />
+              <Form.Check type="radio" label="🧠 I analyze the facts and data" name="q9" onChange={()=> handleAnswer(8, "I analyze the facts and data")} />
+              <Form.Check type="radio" label="❤️ I go with my gut or intuition" name="q9" onChange={() => handleAnswer(8, "I go with my gut or intuition")} />
+              <Form.Check type="radio" label="👂 I ask others for input and advice" name="q9" onChange={() => handleAnswer(8, " I ask others for input and advice")} />
+              <Form.Check type="radio" label="⚖️ I weigh pros and cons carefully" name="q9" onChange={() => handleAnswer(8, "I weigh pros and cons carefully")} />
             </Form>
           </Card>
 
@@ -281,10 +295,10 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
-              <Form.Check type="radio" label="🌍 Solve global or environmental issues" name="q10" onChange={() => handleAnswer(9)} />
-              <Form.Check type="radio" label="👨‍🏫 Educate, inform, or inspire others" name="q10" onChange={() => handleAnswer(9)} />
-              <Form.Check type="radio" label="📈 Innovate and advance industries" name="q10" onChange={() => handleAnswer(9)} />
-              <Form.Check type="radio" label="🛡️ Improve people's lives directly" name="q10" onChange={() => handleAnswer(9)} />
+              <Form.Check type="radio" label="🌍 Solve global or environmental issues" name="q10" onChange={()  => handleAnswer(9, "Solve global or environmental issues")} />
+              <Form.Check type="radio" label="👨‍🏫 Educate, inform, or inspire others" name="q10" onChange={()  => handleAnswer(9, " Educate, inform, or inspire others")} />
+              <Form.Check type="radio" label="📈 Innovate and advance industries" name="q10" onChange={()  => handleAnswer(9, "Innovate and advance industries")} />
+              <Form.Check type="radio" label="🛡️ Improve people's lives directly" name="q10" onChange={()  => handleAnswer(9, "Improve people's lives directly")} />
             </Form>
           </Card>
         </Card.Body>
