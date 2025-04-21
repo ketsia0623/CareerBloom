@@ -7,7 +7,7 @@ let keyData = "";
 
 const prevKey = localStorage.getItem(saveKeyData);
 if (prevKey !== null) {
-  keyData = JSON.parse(prevKey);
+  keyData = prevKey;
 }
 
 
@@ -40,12 +40,14 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   };
 
   const handleKeySubmit = () => {
-    localStorage.setItem(saveKeyData, JSON.stringify(apiKey));
+    if (!apiKey.trim()) return;
+
+    localStorage.setItem(saveKeyData, apiKey); 
     setKeySubmitted(true);
-    console.log("API Key Stored:", apiKey); // Debugging log
-    setTimeout(() => {
-      window.location.reload(); // Reloading the page
-    }, 1000);
+  
+    console.log("API Key Stored:", apiKey);
+    setTimeout(() => setKeySubmitted(false), 2000);
+
   };
   const themeButtonVariant = theme === "default" ? "outline-light" : "outline-dark";
   const themeButtonText = theme === "default" ? "🌸 Change Theme" : "💼 Change Theme";
