@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Form, Button, Container, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import usImage from "./hiii.png"
 
 
 const AboutUs = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
@@ -73,9 +74,13 @@ const AboutUs = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
       </Navbar>
 
       {/* About Us Section */}
-      <div>
-        <img src="hiii.png" alt="hi"/>
-      </div>
+
+      <img 
+            src={usImage} 
+            alt="Us" 
+            style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px" }} 
+       />
+
 
 
 
