@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Navbar, Nav, Form, Button, Container, Row, Col, Card, InputGroup } from "react-bootstrap";
+import { Navbar, Nav, Form, Button, Container, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import usImage from "./hiii.png"
 
 
 const AboutUs = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
@@ -72,26 +73,14 @@ const AboutUs = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
         </div>
       </Navbar>
 
-      {/* About Section */}
-      <Row className="mt-4">
-        <Col md={8}>
-          <Card style={{ height: "300px", backgroundColor: theme === "default" ? "white" : "#ffcce6", color: theme === "default" ? "#333" : "#800040" }}>
-            <Card.Body>
-              <Card.Title style={{ fontSize: "1.5rem", fontWeight: "bold" }}>About</Card.Title>
-              <Card.Text>
-                Choosing the right career can feel overwhelming, but we're here to help! Our career quiz is designed to guide you toward a profession that matches your skills, interests, and personality. Based on well-researched questions and career assessments, we analyze your responses to provide personalized career suggestions. Whether you're exploring options or looking for clarity, our quiz helps you discover paths that align with your strengths and passions. Start today and take the first step toward your future!
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <img 
-            src={theme === "default" ? "https://www.cfnc.org/media/lnrf5gv0/career-sign-post.jpg" : "https://www.shutterstock.com/image-photo/begin-new-career-word-on-260nw-2329671447.jpg"} 
-            alt="Career Path" 
-            style={{ width: "100%", height: "300px", objectFit: "cover", borderRadius: "10px" }} 
-          />
-        </Col>
-      </Row>
+      {/* About Us Section */}
+
+      <img 
+            src={usImage} 
+            alt="Us" 
+            style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px" }} 
+       />
+
 
 
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Form, Button, Container, Row, Col, Card, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import pinkImage from "./images/pinkycareer.png"
 
 const saveKeyData = "MYKEY";
 let keyData = "";
@@ -110,7 +111,7 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
         </Col>
         <Col md={4}>
           <img 
-            src={theme === "default" ? "https://www.cfnc.org/media/lnrf5gv0/career-sign-post.jpg" : "https://www.shutterstock.com/image-photo/begin-new-career-word-on-260nw-2329671447.jpg"} 
+            src={theme === "default" ? "https://www.cfnc.org/media/lnrf5gv0/career-sign-post.jpg" : pinkImage} 
             alt="Career Path" 
             style={{ width: "100%", height: "300px", objectFit: "cover", borderRadius: "10px" }} 
           />
