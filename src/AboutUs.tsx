@@ -2,25 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Form, Button, Container, Row, Col, Card, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const saveKeyData = "MYKEY";
-let keyData = "";
 
-const prevKey = localStorage.getItem(saveKeyData);
-if (prevKey !== null) {
-  keyData = prevKey;
-}
-
-
-const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
+const AboutUs = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
-  const [feedback, setFeedback] = useState({ message: "" });
 
   const [theme, setTheme] = useState<string>(() => {
     const savedTheme = localStorage.getItem("site-theme");
     return savedTheme ? savedTheme : "default";
   });
-  const [keySubmitted, setKeySubmitted] = useState(false);
-  const [apiKey, setApiKey] = useState<string>(keyData);
 
   useEffect(() => {
     document.body.className = theme;
@@ -32,23 +21,10 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
-  const handleFeedbackChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setFeedback({ message: e.target.value });
-  const handleSubmitFeedback = () => alert("Feedback submitted! Thank you.");
 
-  const handleKeyChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setApiKey(e.target.value);
-  };
 
-  const handleKeySubmit = () => {
-    if (!apiKey.trim()) return;
 
-    localStorage.setItem(saveKeyData, apiKey); 
-    setKeySubmitted(true);
-  
-    console.log("API Key Stored:", apiKey);
-    setTimeout(() => setKeySubmitted(false), 2000);
 
-  };
   const themeButtonVariant = theme === "default" ? "outline-light" : "outline-dark";
   const themeButtonText = theme === "default" ? "🌸 Change Theme" : "💼 Change Theme";
 
@@ -117,85 +93,13 @@ const HomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
         </Col>
       </Row>
 
-      {/* Quizzes Section */}
-      <Row className="mt-4">
-        <Col md={6} id="simple-quiz">
-          <Card style={{ height: "200px", backgroundColor: theme === "default" ? "#4caf50" : "#ff99cc", color: theme === "default" ? "white" : "#800040" }}>
-            <Card.Body>
-              <Card.Title>Simple Quiz</Card.Title>
-              <Card.Text>Our Simple Quiz is a quick and easy way to explore career options that suit you. It's a great starting point for anyone looking for direction without spending too much time. Give it a try and discover potential career paths in minutes!</Card.Text>
-              <Button variant={theme === "default" ? "light" : "dark"} onClick={() => navigateTo("simple-quiz")}>
-                Go
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={6} id="detailed-quiz">
-          <Card style={{ height: "200px", backgroundColor: theme === "default" ? "#2196f3" : "#ff80bf", color: theme === "default" ? "white" : "#800040" }}>
-            <Card.Body>
-              <Card.Title>Detailed Quiz</Card.Title>
-              <Card.Text>The Detailed Quiz provides an in-depth analysis of your skills, interests, and personality to help you find the best career path.</Card.Text>
-              <Button variant={theme === "default" ? "light" : "dark"} onClick={() => navigateTo("detailed-quiz")}>
-                Go
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
 
-      {/* Feedback Section */}
-      <Row className="mt-4">
-        <Col>
-          <Card style={{ height: "150px", backgroundColor: theme === "default" ? "white" : "#ffcce6", color: theme === "default" ? "#333" : "#800040" }}>
-            <Card.Body>
-              <Card.Title>Feedback</Card.Title>
-              <Form>
-                <Form.Group>
-                  <Form.Label>Message</Form.Label>
-                  <Form.Control 
-                    as="textarea" 
-                    rows={2} 
-                    name="message" 
-                    value={feedback.message} 
-                    onChange={handleFeedbackChange} 
-                    style={{
-                      backgroundColor: theme === "default" ? "white" : "#ffe6f2",
-                      color: theme === "default" ? "#333" : "#800040"
-                    }}
-                  />
-                </Form.Group>
-                <Button variant={theme === "default" ? "dark" : "danger"} onClick={handleSubmitFeedback}>
-                  Submit
-                </Button>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
 
-      {/* Footer Section */}
-      <footer className={`bg-${theme === "default" ? "light" : "pink"} py-4 mt-5 text-center`}>
-  <div className="container">
-    <Form style={{ width: "220px", margin: "0 auto" }}>
-      <Form.Label style={{ fontSize: "small" }}>API Key:</Form.Label>
-      <Form.Control
-        type="password"
-        placeholder="Insert API Key Here"
-        value={apiKey}
-        onChange={handleKeyChange}
-      />
-      <br />
-      <Button className="Submit-Button" onClick={handleKeySubmit}>Submit</Button>
-      {keySubmitted && (
-        <div style={{ color: "green", fontSize: "0.9rem", marginTop: "5px" }}>
-          Submitted successfully!
-        </div>
-      )}
-    </Form>
-  </div>
-</footer>
+
+
+
     </Container>
   );
 };
 
-export default HomePage;
+export default AboutUs;

@@ -4,6 +4,7 @@ import HomePage from "./HomePage";
 import SimpleQuizPage from "./SimpleQuiz";
 import DetailedQuizPage from "./DetailedQuiz";
 import SimpleQuizResults from "./SimpleQuizResults";
+import AboutUs from "./AboutUs"
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
       {currentPage === "simple-quiz" && <SimpleQuizPage navigateTo={navigateTo} />}
       {currentPage === "detailed-quiz" && <DetailedQuizPage navigateTo={navigateTo} />}
       {currentPage === "simple-quiz-results" && <SimpleQuizResults navigateTo={navigateTo} />}
+      {currentPage === "about-us" && <AboutUs navigateTo={navigateTo} />}
+      
     </>
   );
 }
