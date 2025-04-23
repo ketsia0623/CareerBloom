@@ -20,6 +20,15 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
   // for the checkbox questions of the detailed quiz
   const [activities, setActivities] = useState<string[]>([]);
 
+  const [theme, setTheme] = useState<string>(() => {
+      const savedTheme = localStorage.getItem("site-theme");
+      return savedTheme ? savedTheme : "default";
+    });
+
+const toggleTheme = () => {
+      setTheme(theme === "default" ? "pinky" : "default");
+    };
+
   // checkbox question(2)
   const toggleActivity = (activity: string, checked: boolean) => {
     if (checked) {
@@ -29,7 +38,9 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
     }
   };
 
-
+  const themeButtonVariant = theme === "default" ? "outline-light" : "outline-dark";
+  const themeButtonText = theme === "default" ? "🌸 Change Theme" : "💼 Change Theme";
+  
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setSearch(e.target.value);
 
@@ -118,8 +129,19 @@ const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }
               >
                 Detailed Quiz
               </Nav.Link>
+              <Nav.Link href="#" onClick={(e) => { e.preventDefault(); navigateTo("about-us"); }} style={{ color: theme === "default" ? "#ffcc00" : "#ff66b2" }}>
+                About Us
+              </Nav.Link>
             </Nav>
           </div>
+          <Button 
+                      variant={themeButtonVariant}
+                      onClick={toggleTheme}
+                      className="me-2"
+                      style={{ zIndex: 10 }}
+                    >
+                      {themeButtonText}
+                    </Button>
         </div>
       </Navbar>
 
