@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Form, Button, Container, InputGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import usImage from "./hiii.png"
+import flowerImage from "./flowers.png"
+import usImage from "./us.png"
+import linkedinImage from "./linkedin-logo.png"
 
 
 const AboutUs = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
@@ -74,18 +76,145 @@ const AboutUs = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
       </Navbar>
 
       {/* About Us Section */}
-
-      <img 
-            src={usImage} 
-            alt="Us" 
-            style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "10px" }} 
-       />
+  
 
 
+    <div
+  style={{
+    backgroundImage: `url(${flowerImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    padding: "50px",
+    borderRadius: "10px",
+    minHeight: "100vh",
+    color: "#000000", // if text needs to be light
+    position: "relative",
+    zIndex: 1,
+  }}
+>
+
+<img 
+  src={usImage} 
+  alt="Us" 
+  style={{ 
+    width: "30%", 
+    height: "auto",         // keep aspect ratio
+    objectFit: "cover", 
+    borderRadius: "10px", 
+    display: "block",       // required for margin auto to work
+    margin: "20px auto"     // centers horizontally, adds top/bottom spacing
+  }} 
+/>
 
 
+  <div style={{ 
+    display: "flex", 
+    justifyContent: "center", 
+    flexWrap: "wrap", 
+    marginTop: "30px", 
+    gap: "20px" 
+  }}>
+    {/* Card 1 */}
+    <div style={{ 
+  backgroundColor: "#ffe6f2", 
+  borderRadius: "10px", 
+  padding: "20px", 
+  width: "300px", 
+  margin: "10px", 
+  position: "relative", 
+  minHeight: "200px" 
+}}>
+  <h5>Hamna Malik</h5>
+  <p>Worked on the simple quiz page and handled most of the API/AI handling.</p>
+  <p>hmalik@udel.edu</p>
 
+  <a 
+    href="https://www.linkedin.com/in/hamna-malik-a04b43298/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    style={{ 
+      position: "absolute", 
+      bottom: "10px", 
+      right: "10px" 
+    }}
+  >
+    <img 
+      src={linkedinImage}
+      alt="LinkedIn" 
+      style={{ width: "30px", height: "30px" }}
+    />
+  </a>
+    </div>
 
+    {/* Card 2 */}
+
+   <div style={{ 
+  backgroundColor: "#ffe6f2", 
+  borderRadius: "10px", 
+  padding: "20px", 
+  width: "300px", 
+  margin: "10px", 
+  position: "relative", 
+  minHeight: "200px" 
+}}>
+  <h5>Ketsia Lumiere Donfack Ouwe</h5>
+  <p>Worked on the layout and structure of the detailed career quiz</p>
+  <p>ketsiad@udel.edu</p>
+
+  <a 
+    href="https://www.linkedin.com/in/ketsia-lumiere-donfack-ouwe/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    style={{ 
+      position: "absolute", 
+      bottom: "10px", 
+      right: "10px" 
+    }}
+  >
+    <img 
+      src={linkedinImage}
+      alt="LinkedIn" 
+      style={{ width: "30px", height: "30px" }}
+    />
+  </a>
+    </div>
+
+   {/* Card 3 */}
+<div style={{ 
+  backgroundColor: "#ffe6f2", 
+  borderRadius: "10px", 
+  padding: "20px", 
+  width: "300px", 
+  margin: "10px", 
+  position: "relative", 
+  minHeight: "200px" 
+}}>
+  <h5>Meera Nambiar</h5>
+  <p>Worked on creating and designing the homepage.</p>
+  <p>mnambiar@udel.edu</p>
+
+  <a 
+    href="https://www.linkedin.com/in/meera-nambiar/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    style={{ 
+      position: "absolute", 
+      bottom: "10px", 
+      right: "10px" 
+    }}
+  >
+    <img 
+      src={linkedinImage}
+      alt="LinkedIn" 
+      style={{ width: "30px", height: "30px" }}
+    />
+  </a>
+</div>
+
+</div>
+
+</div>
 
     </Container>
   );
