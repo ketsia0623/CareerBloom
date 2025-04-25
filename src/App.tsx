@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import HomePage from "./HomePage";
+//import HomePage from "./HomePage";
+import NewHomePage from "./NewHomePage";
 import SimpleQuizPage from "./SimpleQuiz";
 import DetailedQuizPage from "./DetailedQuiz";
 import SimpleQuizResults from "./SimpleQuizResults";
@@ -18,7 +19,7 @@ function App() {
   // render based on currentPage state
   return (
     <>
-      {currentPage === "home" && <HomePage navigateTo={navigateTo} />}
+      {currentPage === "home" && <NewHomePage navigateTo={navigateTo} />}
       {currentPage === "simple-quiz" && <SimpleQuizPage navigateTo={navigateTo} />}
       {currentPage === "detailed-quiz" && <DetailedQuizPage navigateTo={navigateTo} />}
       {currentPage === "simple-quiz-results" && <SimpleQuizResults navigateTo={navigateTo} />}
