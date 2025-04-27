@@ -3,6 +3,8 @@ import { Container, Card, Button, Navbar, Nav, Form, InputGroup, ProgressBar, Mo
 import simpleQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q1.jpg";
 import simpleQ2 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q2.jpg";
 import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q3.jpg";
+import simpleQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q4.jpg";
+import simpleQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q5.jpg";
 /*
 import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q3.jpg";
 import simpleQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q4.jpg";
