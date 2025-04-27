@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Card, Button, Navbar, Nav, Form, InputGroup, ProgressBar, Modal } from "react-bootstrap";
 import simpleQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q1.jpg";
 import simpleQ2 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q2.jpg";
-//import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q3.jpg";
+import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q3.jpg";
 /*
 import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q3.jpg";
 import simpleQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q4.jpg";
@@ -198,7 +198,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>3. How do you like to solve problems?</h5>
             <img 
-              src="https://img-cdn.inc.com/image/upload/f_webp,c_fit,w_1920,q_auto/images/panoramic/getty_588960966_354337.jpg" 
+              src={simpleQ3}
               alt="Solving Problems" 
               style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
