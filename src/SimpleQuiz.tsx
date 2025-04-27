@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Card, Button, Navbar, Nav, Form, InputGroup, ProgressBar, Modal } from "react-bootstrap";
+import simpleQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q1.jpg";
 
 const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
@@ -150,11 +151,13 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           {/* Question 1 */}
           <Card className="mb-4 p-3">
             <h5>1. What type of work environment do you prefer?</h5>
+            
             <img 
-              src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg" 
-              alt="Work Environment" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+            src={simpleQ1} 
+            alt="Work Environment" 
+            style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
+
             <Form>
               <Form.Check type="radio" label="🏢 Office-based" name="q1"   onChange={() => handleAnswer(0, "Office-based")}  />
               <Form.Check type="radio" label="🌿 Outdoors" name="q1"   onChange={() => handleAnswer(0, "Outdoors")}  />
