@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Container, Card, Button, Navbar, Nav, Form, InputGroup, ProgressBar, Modal } from "react-bootstrap";
 
+// image import statements
+import simpleQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q1.jpg";
+import simpleQ2 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q2.jpg";
+import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q3.jpg";
+import simpleQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q4.jpg";
+import simpleQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q5.jpg";
+import simpleQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q6.png";
+import simpleQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q7.png";
+import simpleQ8 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q8.jpg";
+import simpleQ9 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q9.jpg";
+import simpleQ10 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q10.jpg";
+
+
 const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
   const [answers, setAnswers] = useState<number>(0);
@@ -150,11 +163,13 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           {/* Question 1 */}
           <Card className="mb-4 p-3">
             <h5>1. What type of work environment do you prefer?</h5>
+            
             <img 
-              src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg" 
-              alt="Work Environment" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+            src={simpleQ1} 
+            alt="Work Environment" 
+            style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
+
             <Form>
               <Form.Check type="radio" label="🏢 Office-based" name="q1"   onChange={() => handleAnswer(0, "Office-based")}  />
               <Form.Check type="radio" label="🌿 Outdoors" name="q1"   onChange={() => handleAnswer(0, "Outdoors")}  />
@@ -167,9 +182,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>2. Which activity sounds most enjoyable to you?</h5>
             <img 
-              src="https://as1.ftcdn.net/jpg/03/37/04/48/1000_F_337044860_7cBFl72dC1kKCbFhHOKulDH0BlLns8gq.jpg" 
+              src={simpleQ2} 
               alt="Activity" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="💻 Solving problems with technology" name="q2" onChange={() => handleAnswer(1, "Solving problems with technology")}  /> 
@@ -183,9 +198,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>3. How do you like to solve problems?</h5>
             <img 
-              src="https://img-cdn.inc.com/image/upload/f_webp,c_fit,w_1920,q_auto/images/panoramic/getty_588960966_354337.jpg" 
+              src={simpleQ3}
               alt="Solving Problems" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="🔬 Researching and experimenting" name="q3"onChange={() => handleAnswer(2, "Researching and experimenting")} />
@@ -199,9 +214,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>4. Which school subject do you enjoy the most?</h5>
             <img 
-              src="https://images.theconversation.com/files/49135/original/22qc7r28-1400667334.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=754&fit=clip" 
+              src={simpleQ4}
               alt="School Subject" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="🧮 Math & Science" name="q4" onChange={()=> handleAnswer(3, "Math & Science")} />
@@ -215,9 +230,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>5. Do you prefer working alone or with others?</h5>
             <img 
-              src="https://www.freshbooks.com/wp-content/uploads/2021/10/what-is-teamwork.jpg" 
+              src={simpleQ5}
               alt="Teamwork" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="🤝 I love teamwork and collaboration" name="q5" onChange={() => handleAnswer(4, "I love teamwork and collaboration")} />
@@ -230,9 +245,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>6. What is most important to you in a career?</h5>
             <img 
-              src="https://jobacle.com/wp-content/uploads/2021/06/career-21.png" 
+              src={simpleQ6} 
               alt="Career Importance" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="💰 High salary and stability" name="q6" onChange={()=> handleAnswer(5, "High salary and stability")} />
@@ -246,9 +261,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>7. What best describes your ideal work schedule?</h5>
             <img 
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRseLevPl_mBPTYYKV_Dc0ZicSQiTmIDwj9hQ&s" 
+              src={simpleQ7} 
               alt="Work Schedule" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="⏰ Fixed hours (9 to 5)" name="q7" onChange={() => handleAnswer(6, "Fixed hours (9 to 5)")} />
@@ -261,9 +276,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>8. What motivates you the most in your work?</h5>
             <img 
-              src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" 
+              src={simpleQ8} 
               alt="Motivation" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="🏆 Achieving goals and recognition" name="q8" onChange={() => handleAnswer(7, "Achieving goals and recognition")}  />
@@ -277,9 +292,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>9. How do you usually make decisions?</h5>
             <img 
-              src="https://media.istockphoto.com/id/1355658095/vector/concept-of-various-paths.jpg?s=612x612&w=0&k=20&c=Ggy1PJDGR7tSzTvewl6VwgAH7cPQrrw089HSYyswMuE=" 
+              src={simpleQ9}
               alt="Decision Making" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="🧠 I analyze the facts and data" name="q9" onChange={()=> handleAnswer(8, "I analyze the facts and data")} />
@@ -293,9 +308,9 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>10. What kind of impact do you expect your career to have?</h5>
             <img 
-              src="https://media.istockphoto.com/id/979622962/photo/hand-putting-wooden-cube-block-on-blue-background-with-word-career-and-copy-space-for-your.jpg?s=612x612&w=0&k=20&c=WtIeJMPJ-6ozlnpyps0R2TLwMSTYFtWAT6yRBQymRSg=" 
+              src={simpleQ10}
               alt="Impact" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="🌍 Solve global or environmental issues" name="q10" onChange={()  => handleAnswer(9, "Solve global or environmental issues")} />
