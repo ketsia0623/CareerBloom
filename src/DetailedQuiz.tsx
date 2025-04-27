@@ -11,6 +11,14 @@ import {
   Modal,
 } from "react-bootstrap";
 
+// image import statements
+import detailedQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q1.jpg";
+import detailedQ2 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q2.jpg";
+import detailedQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q3.jpg";
+import detailedQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q4.jpg";
+import detailedQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q5.jpg";
+import detailedQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q6.jpg";
+import detailedQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q7.jpg";
 
 const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
@@ -185,7 +193,7 @@ const toggleTheme = () => {
       <Card className="mb-4 p-3">
       <h5>1. Describe a project or task that made you feel proud. What were you doing?</h5>
       <img
-        src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg"
+        src={detailedQ1}
         alt="Work Environment"
         style={{
           width: "200%",
@@ -213,7 +221,7 @@ const toggleTheme = () => {
           <Card className="mb-4 p-3">
             <h5>2. What would your ideal workday look like from start to finish?</h5>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR22xSa_jDnIqzGSOsWrXo24YqVoO7zVzE8pg&s"
+              src={detailedQ2}
               alt="Ideal Day"
               style={{
                 width: "200%",
@@ -241,7 +249,7 @@ const toggleTheme = () => {
           <Card className="mb-4 p-3">
             <h5>3. Which of these activities do you enjoy the most?</h5>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
+              src={detailedQ3}
               alt="Activities"
               style={{
                 width: "200%",
@@ -270,7 +278,7 @@ const toggleTheme = () => {
           <Card className="mb-4 p-3">
             <h5>4. Select a field you're most interested in exploring:</h5>
             <img
-              src="https://www.moneycrashers.com/wp-content/uploads/2023/05/college-education-career-major-field.jpg"
+              src={detailedQ4}
               alt="Career Fields"
               style={{
                 width: "200%",
@@ -298,10 +306,11 @@ const toggleTheme = () => {
             </Form>
           </Card>
 
+          {/* Question 5 */ }
           <Card className="mb-4 p-3">
           <h5>5. How much do you value job stability when choosing a career?</h5>
           <img
-            src="https://business.time.com/wp-content/uploads/sites/2/2012/12/103498240-e1355344822863.jpg?w=720&h=480&crop=1"
+            src={detailedQ5}
             alt="Job Stability"
             style={{
               width: "200%",
@@ -335,7 +344,7 @@ const toggleTheme = () => {
           <Card className="mb-4 p-3">
           <h5>6. How confident are you in your communication skills?</h5>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB_sJs-LqpR320HyogFRCtUYkOTTYOjXtVAw&s"
+            src={detailedQ6}
             alt="Communication"
             style={{
               width: "200%",
@@ -359,10 +368,12 @@ const toggleTheme = () => {
           </Form>
         </Card>
 
+
+            {/* Question 7 */ }
           <Card className="mb-4 p-3">
-          <h5>8. What is one change you'd love to make in the world through your work?</h5>
+          <h5>7. What is one change you'd love to make in the world through your work?</h5>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeeWOxP0jGkDnN9wVPkBN1eNYKoTxpraWcOQ&s"
+            src={detailedQ7}
             alt="World Impact"
             style={{
               width: "200%",
