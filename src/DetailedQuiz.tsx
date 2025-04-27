@@ -13,7 +13,8 @@ import {
 
 // image import statements
 import detailedQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q1.jpg";
-import detailedQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q1.jpg";
+import detailedQ2 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q2.jpg";
+import detailedQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q4.jpg";
 import detailedQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q5.jpg";
 import detailedQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q6.jpg";
 import detailedQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q7.jpg";
@@ -219,7 +220,7 @@ const toggleTheme = () => {
           <Card className="mb-4 p-3">
             <h5>2. What would your ideal workday look like from start to finish?</h5>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR22xSa_jDnIqzGSOsWrXo24YqVoO7zVzE8pg&s"
+              src={detailedQ2}
               alt="Ideal Day"
               style={{
                 width: "200%",
