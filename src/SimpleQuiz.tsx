@@ -8,7 +8,8 @@ import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-
 import simpleQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q4.jpg";
 import simpleQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q5.jpg";
 import simpleQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q6.png";
-import simpleQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q7.jpg";
+import simpleQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q7.png";
+import simpleQ8 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q8.jpg";
 /*
 import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q3.jpg";
 import simpleQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q4.jpg";
@@ -282,7 +283,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>8. What motivates you the most in your work?</h5>
             <img 
-              src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixlib=rb-4.0.3&auto=format&fit=crop&w=870&q=80" 
+              src={simpleQ8} 
               alt="Motivation" 
               style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
