@@ -167,7 +167,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
             <img 
             src={simpleQ1} 
             alt="Work Environment" 
-            style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+            style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
 
             <Form>
@@ -184,7 +184,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
             <img 
               src={simpleQ2} 
               alt="Activity" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="💻 Solving problems with technology" name="q2" onChange={() => handleAnswer(1, "Solving problems with technology")}  /> 
@@ -200,7 +200,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
             <img 
               src={simpleQ3}
               alt="Solving Problems" 
-              style={{ width: "200%", maxWidth: "450px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
+              style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
             <Form>
               <Form.Check type="radio" label="🔬 Researching and experimenting" name="q3"onChange={() => handleAnswer(2, "Researching and experimenting")} />
