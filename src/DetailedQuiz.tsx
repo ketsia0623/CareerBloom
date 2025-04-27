@@ -13,6 +13,7 @@ import {
 
 // image import statements
 import detailedQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q1.jpg";
+import detailedQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q1.jpg";
 import detailedQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q5.jpg";
 import detailedQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q6.jpg";
 import detailedQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q7.jpg";
@@ -275,7 +276,7 @@ const toggleTheme = () => {
           <Card className="mb-4 p-3">
             <h5>4. Select a field you're most interested in exploring:</h5>
             <img
-              src="https://www.moneycrashers.com/wp-content/uploads/2023/05/college-education-career-major-field.jpg"
+              src={detailedQ4}
               alt="Career Fields"
               style={{
                 width: "200%",
