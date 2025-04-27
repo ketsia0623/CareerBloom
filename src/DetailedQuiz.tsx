@@ -11,6 +11,9 @@ import {
   Modal,
 } from "react-bootstrap";
 
+// image import statements
+import detailedQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q1.jpg";
+import detailedQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q7.jpg";
 
 const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
@@ -185,7 +188,7 @@ const toggleTheme = () => {
       <Card className="mb-4 p-3">
       <h5>1. Describe a project or task that made you feel proud. What were you doing?</h5>
       <img
-        src="https://cdn3.careeraddict.com/uploads/article/59060/illustration-men-interview-busy-environment.jpg"
+        src={detailedQ1}
         alt="Work Environment"
         style={{
           width: "200%",
@@ -298,6 +301,7 @@ const toggleTheme = () => {
             </Form>
           </Card>
 
+          {/* Question 5 */ }
           <Card className="mb-4 p-3">
           <h5>5. How much do you value job stability when choosing a career?</h5>
           <img
@@ -359,10 +363,12 @@ const toggleTheme = () => {
           </Form>
         </Card>
 
+
+            {/* Question 7 */ }
           <Card className="mb-4 p-3">
-          <h5>8. What is one change you'd love to make in the world through your work?</h5>
+          <h5>7. What is one change you'd love to make in the world through your work?</h5>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeeWOxP0jGkDnN9wVPkBN1eNYKoTxpraWcOQ&s"
+            src={detailedQ7}
             alt="World Impact"
             style={{
               width: "200%",
