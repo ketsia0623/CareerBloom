@@ -14,6 +14,7 @@ import {
 // image import statements
 import detailedQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q1.jpg";
 import detailedQ2 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q2.jpg";
+import detailedQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q3.jpg";
 import detailedQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q4.jpg";
 import detailedQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q5.jpg";
 import detailedQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q6.jpg";
@@ -248,7 +249,7 @@ const toggleTheme = () => {
           <Card className="mb-4 p-3">
             <h5>3. Which of these activities do you enjoy the most?</h5>
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStY2BK_JCmWJ4dZ47rktrAQwq8hnG1h564A&s"
+              src={detailedQ3}
               alt="Activities"
               style={{
                 width: "200%",
