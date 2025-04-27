@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Container, Card, Button, Navbar, Nav, Form, InputGroup, ProgressBar, Modal } from "react-bootstrap";
 
 // image import statements
-import simpleQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q1.jpg";
-import simpleQ2 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q2.jpg";
-import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q3.jpg";
-import simpleQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q4.jpg";
-import simpleQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q5.jpg";
-import simpleQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q6.png";
-import simpleQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q7.png";
-import simpleQ8 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q8.jpg";
-import simpleQ9 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q9.jpg";
-import simpleQ10 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q10.jpg";
+import simpleQ1 from "./images/simple-q1.jpg";
+import simpleQ2 from "./images/simple-q2.jpg";
+import simpleQ3 from "./images/simple-q3.jpg";
+import simpleQ4 from "./images/simple-q4.jpg";
+import simpleQ5 from "./images/simple-q5.jpg";
+import simpleQ6 from "./images/simple-q6.png";
+import simpleQ7 from "./images/simple-q7.png";
+import simpleQ8 from "./images/simple-q8.jpg";
+import simpleQ9 from "./images/simple-q9.jpg";
+import simpleQ10 from "./images/simple-q10.jpg";
 
 
 const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {

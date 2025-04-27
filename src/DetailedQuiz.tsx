@@ -12,13 +12,13 @@ import {
 } from "react-bootstrap";
 
 // image import statements
-import detailedQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q1.jpg";
-import detailedQ2 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q2.jpg";
-import detailedQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q3.jpg";
-import detailedQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q4.jpg";
-import detailedQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q5.jpg";
-import detailedQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q6.jpg";
-import detailedQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q7.jpg";
+import detailedQ1 from "./images/detailed-q1.jpg";
+import detailedQ2 from "./images/detailed-q2.jpg";
+import detailedQ3 from "./images/detailed-q3.jpg";
+import detailedQ4 from "./images/detailed-q4.jpg";
+import detailedQ5 from "./images/detailed-q5.jpg";
+import detailedQ6 from "./images/detailed-q6.jpg";
+import detailedQ7 from "./images/detailed-q7.jpg";
 
 const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
