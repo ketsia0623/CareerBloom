@@ -10,16 +10,9 @@ import simpleQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-
 import simpleQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q6.png";
 import simpleQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q7.png";
 import simpleQ8 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q8.jpg";
-/*
-import simpleQ3 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q3.jpg";
-import simpleQ4 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q4.jpg";
-import simpleQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q5.jpg";
-import simpleQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q6.jpg";
-import simpleQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q7.jpg";
-import simpleQ8 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q8.jpg";
 import simpleQ9 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q9.jpg";
 import simpleQ10 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/simple-q10.jpg";
-*/
+
 
 const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [search, setSearch] = useState("");
@@ -299,7 +292,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>9. How do you usually make decisions?</h5>
             <img 
-              src="https://media.istockphoto.com/id/1355658095/vector/concept-of-various-paths.jpg?s=612x612&w=0&k=20&c=Ggy1PJDGR7tSzTvewl6VwgAH7cPQrrw089HSYyswMuE=" 
+              src={simpleQ9}
               alt="Decision Making" 
               style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
@@ -315,7 +308,7 @@ const SimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) 
           <Card className="mb-4 p-3">
             <h5>10. What kind of impact do you expect your career to have?</h5>
             <img 
-              src="https://media.istockphoto.com/id/979622962/photo/hand-putting-wooden-cube-block-on-blue-background-with-word-career-and-copy-space-for-your.jpg?s=612x612&w=0&k=20&c=WtIeJMPJ-6ozlnpyps0R2TLwMSTYFtWAT6yRBQymRSg=" 
+              src={simpleQ10}
               alt="Impact" 
               style={{ width: "100%", maxWidth: "400px", height: "auto", display: "block", margin: "10px auto", borderRadius: "8px" }}
             />
