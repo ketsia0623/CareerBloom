@@ -13,6 +13,8 @@ import {
 
 // image import statements
 import detailedQ1 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q1.jpg";
+import detailedQ5 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q5.jpg";
+import detailedQ6 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q6.jpg";
 import detailedQ7 from "C:/Users/ketsi/OneDrive/Documents/CISC275/CISC275_Starter-1/src/images/detailed-q7.jpg";
 
 const DetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
@@ -305,7 +307,7 @@ const toggleTheme = () => {
           <Card className="mb-4 p-3">
           <h5>5. How much do you value job stability when choosing a career?</h5>
           <img
-            src="https://business.time.com/wp-content/uploads/sites/2/2012/12/103498240-e1355344822863.jpg?w=720&h=480&crop=1"
+            src={detailedQ5}
             alt="Job Stability"
             style={{
               width: "200%",
@@ -339,7 +341,7 @@ const toggleTheme = () => {
           <Card className="mb-4 p-3">
           <h5>6. How confident are you in your communication skills?</h5>
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB_sJs-LqpR320HyogFRCtUYkOTTYOjXtVAw&s"
+            src={detailedQ6}
             alt="Communication"
             style={{
               width: "200%",
