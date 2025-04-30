@@ -73,6 +73,11 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
     }
   }, [progress, showModal]);
 
+  // Handler for modal close button
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <Container fluid className="main-container">
       {/* Falling Petals Background */}
@@ -114,8 +119,8 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
         </div>
       </div>
 
-      {/* Fixed Progress Bar */}
-      <div className="quiz-progress-container">
+      {/* Fixed Progress Bar - Now positioned with fixed positioning */}
+      <div className="fixed-progress-container">
         <ProgressBar 
           now={progress} 
           label={`${Math.round(progress)}%`} 
@@ -123,10 +128,10 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
         />
       </div>
 
-      {/* Modal Notification */}
+      {/* Modal Notification with Close Button Functionality */}
       <Modal 
         show={showModal} 
-        onHide={() => setShowModal(false)} 
+        onHide={handleCloseModal} 
         className="result-modal"
       >
         <Modal.Header closeButton>
@@ -136,14 +141,17 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
           <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
           <Button className="custom-button" onClick={() => navigateTo("detailed-quiz-results")}>
             See Results
           </Button>
         </Modal.Footer>
       </Modal>
       
-      {/* Quiz Content */}
-      <div className="main-content">
+      {/* Quiz Content - Added top padding to accommodate fixed progress bar */}
+      <div className="main-content quiz-content-with-fixed-progress">
         <Card.Title className="card-title text-center">Detailed Career Quiz</Card.Title>
         <p className="card-text text-center mb-4">
           Take this comprehensive assessment to discover career paths that align with your skills, interests, and values.

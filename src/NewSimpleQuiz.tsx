@@ -46,6 +46,11 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
     }
   }, [progress, showModal, userAnswers]);
 
+  // Handler for modal close button
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <Container fluid className="main-container">
       {/* Falling Petals GIF Background */}
@@ -99,13 +104,14 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="main-content">
-        <div className="quiz-progress-container">
-          <ProgressBar now={progress} label={`${Math.round(progress)}%`} className="quiz-progress" />
-        </div>
+      {/* Fixed Progress Bar at top of screen */}
+      <div className="fixed-progress-container">
+        <ProgressBar now={progress} label={`${Math.round(progress)}%`} className="quiz-progress" />
+      </div>
 
-        <Modal show={showModal} onHide={() => setShowModal(false)} className="result-modal">
+      {/* Main Content - Added padding to account for fixed progress bar */}
+      <div className="main-content quiz-content-with-fixed-progress">
+        <Modal show={showModal} onHide={handleCloseModal} className="result-modal">
           <Modal.Header closeButton>
             <Modal.Title>🎉 You Finished the Quiz!</Modal.Title>
           </Modal.Header>
@@ -113,6 +119,9 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
             <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
           </Modal.Body>
           <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              Close
+            </Button>
             <Button variant="primary" onClick={() => navigateTo("simple-quiz-results")} className="custom-button">
               See Results
             </Button>

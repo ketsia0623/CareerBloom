@@ -401,3 +401,38 @@
       margin-bottom: 20px;
     }
   }
+
+
+
+
+  
+/* Fixed progress bar styles */
+.fixed-progress-container {
+    position: fixed;
+    top: 100px; /* Positioned below the navbar */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures it stays on top of other content */
+    padding: 0 15px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    backdrop-filter: blur(5px); /* Blurred backdrop for modern browsers */
+    padding: 10px 15px;
+  }
+  
+  /* Add padding to main content to prevent overlap with fixed progress bar */
+  .quiz-content-with-fixed-progress {
+    padding-top: 60px; /* Adjusted to account for fixed progress bar height */
+  }
+  
+  /* Style the close button in the modal */
+  .modal-header .close {
+    padding: 0.5rem;
+    margin: -0.5rem -0.5rem -0.5rem auto;
+  }
+  
+  /* Make the progress bar more visible */
+  .quiz-progress {
+    height: 10px;
+    transition: width 0.
+  }
