@@ -409,14 +409,14 @@
 /* Fixed progress bar styles */
 .fixed-progress-container {
     position: fixed;
-    top: 100px; /* Positioned below the navbar */
+    top: 100px; /* below the navigation bar-ish */
     left: 0;
     right: 0;
-    z-index: 1000; /* Ensures it stays on top of other content */
+    z-index: 1000; /* on top of the rest of the page */
     padding: 0 15px;
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    backdrop-filter: blur(5px); /* Blurred backdrop for modern browsers */
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); 
     padding: 10px 15px;
   }
   

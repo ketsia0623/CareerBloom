@@ -9,7 +9,7 @@ import {
   ProgressBar,
   Modal,
 } from "react-bootstrap";
-import "./NewHomePage.css"; // Link to the homepage CSS
+import "./NewHomePage.css";
 
 // image import statements
 import detailedQ1 from "./images/detailed-q1.jpg";
@@ -19,14 +19,13 @@ import detailedQ4 from "./images/detailed-q4.jpg";
 import detailedQ5 from "./images/detailed-q5.jpg";
 import detailedQ6 from "./images/detailed-q6.jpg";
 import detailedQ7 from "./images/detailed-q7.jpg";
-import sakura from "./flowa.png"; // Import sakura flower image
-import petals from "./falldown.gif"; // Import falling petals background
+import sakura from "./flowa.png"; // just the flower
+import petals from "./falldown.gif"; // the falling petals
 
 const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [answers, setAnswers] = useState<string[]>(new Array(7).fill(""));
   const [questionAnswered, setQuestionAnswered] = useState<boolean[]>(new Array(7).fill(false));
   const [showModal, setShowModal] = useState(false);
-  // for the checkbox questions of the detailed quiz
   const [activities, setActivities] = useState<string[]>([]);
 
 
