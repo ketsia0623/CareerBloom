@@ -88,12 +88,22 @@
     border-radius: 15px;
     border-color: #ffb3d9;
     background-color: #fff0f7;
+    transition: transform 0.3s ease;
+  }
+
+  .simple-quiz-card:hover {
+    transform: translateY(-5px);
   }
   
   .detailed-quiz-card {
     border-radius: 15px;
     border-color: #ff99cc;
     background-color: #ffe6f2;
+    transition: transform 0.3s ease;
+  }
+
+  .detailed-quiz-card:hover {
+    transform: translateY(-5px);
   }
   
   /* Button Styles */
@@ -248,4 +258,146 @@
   
   .answers-section {
     margin-bottom: 30px;
+  }
+
+
+
+
+
+
+  .stability-rating {
+    margin-top: 15px;
+  }
+  
+  .stability-rating span {
+    color: #ff66b2;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  
+  .rating-radio {
+    text-align: center;
+  }
+  
+  /* Confidence slider styling */
+  .confidence-label {
+    color: #ff66b2;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .confidence-value {
+    font-weight: bold;
+  }
+  
+  .custom-range::-webkit-slider-thumb {
+    background-color: #ff66b2;
+  }
+  
+  .custom-range::-moz-range-thumb {
+    background-color: #ff66b2;
+  }
+  
+  .custom-range::-ms-thumb {
+    background-color: #ff66b2;
+  }
+  
+  /* Form styling */
+  .form-control:focus, .form-select:focus {
+    border-color: #ff80bf;
+    box-shadow: 0 0 0 0.25rem rgba(255, 102, 178, 0.25);
+  }
+  
+  .form-select {
+    border-color: #ffcce6;
+  }
+  
+  /* Fix for checkboxes to match theme */
+  .form-check-input:checked {
+    background-color: #ff66b2;
+    border-color: #ff66b2;
+  }
+  
+  /* Add some spacing between sections */
+  .question-card + .question-card {
+    margin-top: 25px;
+  }
+  
+  /* Improve button state for disabled submit */
+  .custom-button:disabled {
+    background-color: #ffb3d9;
+    border-color: #ffb3d9;
+    color: white;
+    opacity: 0.65;
+  }
+  
+  /* Animation for completion message */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .result-modal .modal-title {
+    animation: pulse 1.5s infinite;
+  }
+
+
+
+
+
+
+
+  .team-member-card {
+    border-radius: 15px;
+    border-color: #ffb3d9;
+    background-color: #fff0f7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    position: relative;
+    padding-bottom: 40px;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Team section container */
+  .team-section {
+    margin-top: 30px;
+  }
+  
+  /* LinkedIn icon positioning */
+  .linkedin-link {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .linkedin-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .linkedin-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Team image styling */
+  .team-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .team-image:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .team-member-card {
+      margin-bottom: 20px;
+    }
   }

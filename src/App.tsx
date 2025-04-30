@@ -4,10 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NewHomePage from "./NewHomePage";
 //import SimpleQuizPage from "./SimpleQuiz";
 import NewSimpleQuizPage from "./NewSimpleQuiz";
-import DetailedQuizPage from "./DetailedQuiz";
+//import DetailedQuizPage from "./DetailedQuiz";
+import NewDetailedQuizPage from "./NewDetailedQuiz";
 //import SimpleQuizResults from "./SimpleQuizResults";
 import NewSimpleQuizResults from "./NewSimpleQuizResults";
-import AboutUs from "./AboutUs"
+//import AboutUs from "./AboutUs"
+import NewAboutUs from "./NewAboutUs";
 
 
 function App() {
@@ -23,9 +25,9 @@ function App() {
     <>
       {currentPage === "home" && <NewHomePage navigateTo={navigateTo} />}
       {currentPage === "simple-quiz" && <NewSimpleQuizPage navigateTo={navigateTo} />}
-      {currentPage === "detailed-quiz" && <DetailedQuizPage navigateTo={navigateTo} />}
+      {currentPage === "detailed-quiz" && <NewDetailedQuizPage navigateTo={navigateTo} />}
       {currentPage === "simple-quiz-results" && <NewSimpleQuizResults navigateTo={navigateTo} />}
-      {currentPage === "about-us" && <AboutUs navigateTo={navigateTo} />}
+      {currentPage === "about-us" && <NewAboutUs navigateTo={navigateTo} />}
       
     </>
   );
