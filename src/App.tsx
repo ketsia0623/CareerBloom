@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 //import HomePage from "./HomePage";
 import NewHomePage from "./NewHomePage";
-import SimpleQuizPage from "./SimpleQuiz";
+//import SimpleQuizPage from "./SimpleQuiz";
+import NewSimpleQuizPage from "./NewSimpleQuiz";
 import DetailedQuizPage from "./DetailedQuiz";
-import SimpleQuizResults from "./SimpleQuizResults";
+//import SimpleQuizResults from "./SimpleQuizResults";
+import NewSimpleQuizResults from "./NewSimpleQuizResults";
 import AboutUs from "./AboutUs"
 
 
@@ -20,9 +22,9 @@ function App() {
   return (
     <>
       {currentPage === "home" && <NewHomePage navigateTo={navigateTo} />}
-      {currentPage === "simple-quiz" && <SimpleQuizPage navigateTo={navigateTo} />}
+      {currentPage === "simple-quiz" && <NewSimpleQuizPage navigateTo={navigateTo} />}
       {currentPage === "detailed-quiz" && <DetailedQuizPage navigateTo={navigateTo} />}
-      {currentPage === "simple-quiz-results" && <SimpleQuizResults navigateTo={navigateTo} />}
+      {currentPage === "simple-quiz-results" && <NewSimpleQuizResults navigateTo={navigateTo} />}
       {currentPage === "about-us" && <AboutUs navigateTo={navigateTo} />}
       
     </>
