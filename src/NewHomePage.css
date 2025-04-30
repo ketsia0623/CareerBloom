@@ -88,12 +88,22 @@
     border-radius: 15px;
     border-color: #ffb3d9;
     background-color: #fff0f7;
+    transition: transform 0.3s ease;
+  }
+
+  .simple-quiz-card:hover {
+    transform: translateY(-5px);
   }
   
   .detailed-quiz-card {
     border-radius: 15px;
     border-color: #ff99cc;
     background-color: #ffe6f2;
+    transition: transform 0.3s ease;
+  }
+
+  .detailed-quiz-card:hover {
+    transform: translateY(-5px);
   }
   
   /* Button Styles */
@@ -138,4 +148,291 @@
     color: #4caf50;
     font-size: 0.9rem;
     margin-top: 5px;
+  }
+  
+  /* Quiz specific styles */
+  .quiz-card {
+    margin-top: 20px;
+  }
+  
+  .question-card {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 15px;
+    border-color: #ffb3d9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .question-card h5 {
+    color: #ff66b2;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .question-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 10px auto 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quiz-progress-container {
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quiz-progress {
+    height: 25px;
+    border-radius: 20px;
+  }
+  
+  .quiz-progress .progress-bar {
+    background-color: #ff66b2;
+    font-weight: 600;
+  }
+  
+  /* Radio button styling */
+  .form-check {
+    margin-bottom: 10px;
+    padding-left: 30px;
+  }
+  
+  .form-check-input:checked {
+    background-color: #ff66b2;
+    border-color: #ff66b2;
+  }
+  
+  /* Modal styling */
+  .result-modal .modal-header {
+    background-color: #ff66b2;
+    color: white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .result-modal .modal-title {
+    font-weight: bold;
+  }
+  
+  .result-modal .modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .result-modal .modal-footer {
+    border-top: none;
+  }
+
+
+
+  
+/* wait */
+.list-group-item {
+    margin-bottom: 8px;
+    border-color: #ffcce6;
+    border-radius: 8px !important;
+  }
+  
+  .list-group-item strong {
+    color: #ff66b2;
+  }
+  
+  .spinner-border {
+    color: #ff66b2;
+  }
+  
+  .recommendation-section {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .answers-section {
+    margin-bottom: 30px;
+  }
+
+
+
+
+
+
+  .stability-rating {
+    margin-top: 15px;
+  }
+  
+  .stability-rating span {
+    color: #ff66b2;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  
+  .rating-radio {
+    text-align: center;
+  }
+  
+  /* Confidence slider styling */
+  .confidence-label {
+    color: #ff66b2;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .confidence-value {
+    font-weight: bold;
+  }
+  
+  .custom-range::-webkit-slider-thumb {
+    background-color: #ff66b2;
+  }
+  
+  .custom-range::-moz-range-thumb {
+    background-color: #ff66b2;
+  }
+  
+  .custom-range::-ms-thumb {
+    background-color: #ff66b2;
+  }
+  
+  /* Form styling */
+  .form-control:focus, .form-select:focus {
+    border-color: #ff80bf;
+    box-shadow: 0 0 0 0.25rem rgba(255, 102, 178, 0.25);
+  }
+  
+  .form-select {
+    border-color: #ffcce6;
+  }
+  
+  /* Fix for checkboxes to match theme */
+  .form-check-input:checked {
+    background-color: #ff66b2;
+    border-color: #ff66b2;
+  }
+  
+  /* Add some spacing between sections */
+  .question-card + .question-card {
+    margin-top: 25px;
+  }
+  
+  /* Improve button state for disabled submit */
+  .custom-button:disabled {
+    background-color: #ffb3d9;
+    border-color: #ffb3d9;
+    color: white;
+    opacity: 0.65;
+  }
+  
+  /* Animation for completion message */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .result-modal .modal-title {
+    animation: pulse 1.5s infinite;
+  }
+
+
+
+
+
+
+
+  .team-member-card {
+    border-radius: 15px;
+    border-color: #ffb3d9;
+    background-color: #fff0f7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    position: relative;
+    padding-bottom: 40px;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Team section container */
+  .team-section {
+    margin-top: 30px;
+  }
+  
+  /* LinkedIn icon positioning */
+  .linkedin-link {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .linkedin-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .linkedin-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Team image styling */
+  .team-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .team-image:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .team-member-card {
+      margin-bottom: 20px;
+    }
+  }
+
+
+
+
+  
+/* Fixed progress bar styles */
+.fixed-progress-container {
+    position: fixed;
+    top: 100px; /* below the navigation bar-ish */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* on top of the rest of the page */
+    padding: 0 15px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px); 
+    padding: 10px 15px;
+  }
+  
+  /* Add padding to main content to prevent overlap with fixed progress bar */
+  .quiz-content-with-fixed-progress {
+    padding-top: 60px; /* Adjusted to account for fixed progress bar height */
+  }
+  
+  /* Style the close button in the modal */
+  .modal-header .close {
+    padding: 0.5rem;
+    margin: -0.5rem -0.5rem -0.5rem auto;
+  }
+  
+  /* Make the progress bar more visible */
+  .quiz-progress {
+    height: 10px;
+    transition: width 0.
   }
