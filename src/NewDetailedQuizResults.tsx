@@ -5,6 +5,8 @@ interface DetailedQuizResultsProps {
   navigateTo: (page: string) => void;
 }
 
+
+
 const DetailedQuizResults: React.FC<DetailedQuizResultsProps> = ({ navigateTo }) => {
   const [quizAnswers, setQuizAnswers] = useState<string[]>([]);
   const [jobSuggestions, setJobSuggestions] = useState<string>("");
