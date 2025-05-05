@@ -104,6 +104,68 @@ interface DetailedQuizResultsProps {
           </div>
         </div>
 
-             
 
-export default DetailedQuizResults;
+        {/* Main Content */}
+      <div className="main-content">
+        <Row className="justify-content-center mb-4 text-center">
+          <Col>
+            <Card.Title className="card-title">Your Personalized Career Suggestions</Card.Title>
+            <p className="card-text">Based on your quiz answers, here's what we think suits you best!</p>
+          </Col>
+        </Row>
+
+        {loading ? (
+          <div className="text-center mt-5">
+            <Spinner animation="border" style={{ color: "#ff66b2" }} />
+            <p className="mt-3 card-text">Analyzing your answers and preparing your results...</p>
+          </div>
+        ) : (
+          <>
+            <Row className="justify-content-center">
+              <Col md={10} lg={10}>
+                <Card className="p-4 shadow-sm simple-quiz-card mb-4">
+                  <h4 className="fw-semibold card-title mb-3">🌟 Top Career Match</h4>
+                  <p className="card-text" style={{ whiteSpace: "pre-wrap" }}>{jobSuggestions}</p>
+                </Card>
+
+                <Card className="p-4 shadow-sm detailed-quiz-card mb-4">
+                  <h5 className="fw-semibold card-title mb-3">📋 Your Quiz Answers</h5>
+                  <ListGroup variant="flush">
+                    {quizAnswers.map((answer, index) => (
+                      <ListGroup.Item
+                        key={index}
+                        className="py-3 bg-light"
+                        style={{
+                          borderRadius: "8px",
+                          marginBottom: "8px",
+                          borderColor: "#ffcce6",
+                        }}
+                      >
+                        <strong className="card-title">Question {index + 1}:</strong>{" "}
+                        <span className="card-text">{answer}</span>
+                      </ListGroup.Item>
+                    ))}
+                  </ListGroup>
+                </Card>
+
+                <div className="text-center mt-4">
+                  <Button className="custom-button" onClick={() => navigateTo("home")}>
+                    ⬅️ Take Another Quiz
+                  </Button>
+                </div>
+              </Col>
+            </Row>
+          </>
+        )}
+      </div>
+
+        {/* Footer */}
+        <footer className="footer text-center">
+            <p className="card-text">© 2025 Career Matcher. All rights reserved.</p>
+        </footer>
+        </Container>
+    );
+    };
+
+    export default DetailedQuizResults;
+                
