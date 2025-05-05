@@ -67,7 +67,7 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
     }
   };
 
-  const progress = (questionAnswered.filter(Boolean).length / 7) * 100;
+  const progress = (questionAnswered.filter(Boolean).length / 10) * 100;
 
   useEffect(() => {
     if (progress === 100 && !showModal) {
