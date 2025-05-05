@@ -20,8 +20,8 @@ import detailedQ5 from "./images/detailed-q5.jpg";
 import detailedQ6 from "./images/detailed-q6.jpg";
 import detailedQ7 from "./images/detailed-q7.jpg";
 import detailedQ8 from "./images/detailed-q8.jpg";
-//import detailedQ9 from "./images/detailed-q9.jpg";
-//import detailedQ10 from "./images/detailed-q10.jpg";
+import detailedQ9 from "./images/detailed-q9.jpg";
+import detailedQ10 from "./images/detailed-q10.jpg";
 import sakura from "./flowa.png"; // just the flower
 import petals from "./falldown.gif"; // the falling petals
 
@@ -349,6 +349,51 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
                 <option value="Learning and improving">Learning and improving</option>
                 <option value="Working with a team">Working with a team</option>
               </Form.Select>
+            </Form.Group>
+          </Form>
+        </Card>
+
+
+        {/* Question 9 */}
+        <Card className="question-card">
+          <h5>9. Describe a time you solved a problem creatively.</h5>
+          <img
+            src={detailedQ9}
+            alt="Creative Problem Solving"
+            className="question-image"
+          />
+          <Form>
+            <Form.Group controlId="q9">
+              <Form.Control
+                type="text"
+                placeholder="Type your answer here..."
+                value={answers[8]}
+                onChange={(e) => handleAnswer(8, e.target.value)}
+                className="form-control"
+              />
+            </Form.Group>
+          </Form>
+        </Card>
+
+
+        {/* Question 10 */}
+        <Card className="question-card">
+          <h5>10. How confident are you in learning new technology?</h5>
+          <img
+            src={detailedQ10}
+            alt="Tech Confidence"
+            className="question-image"
+          />
+          <Form>
+            <Form.Group controlId="q10">
+              <Form.Label>Confidence Level: {answers[9]}</Form.Label>
+              <Form.Range
+                min={0}
+                max={10}
+                value={answers[9] || 5}
+                onChange={(e) => handleAnswer(9, e.target.value)}
+                className="form-range"
+              />
             </Form.Group>
           </Form>
         </Card>
