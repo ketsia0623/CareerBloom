@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Card, Spinner, Container, ListGroup, Row, Col, Button } from "react-bootstrap";
+import {
+  Card,
+  Spinner,
+  Container,
+  ListGroup,
+  Row,
+  Col,
+  Button,
+  Navbar,
+  Nav
+} from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import sakura from "./flowa.png";
+import petals from "./falldown.gif";
+import "./NewHomePage.css";
+
 
 interface DetailedQuizResultsProps {
-  navigateTo: (page: string) => void;
-}
-
+    navigateTo: (page: string) => void;
+  }
 
 
 const DetailedQuizResults: React.FC<DetailedQuizResultsProps> = ({ navigateTo }) => {
