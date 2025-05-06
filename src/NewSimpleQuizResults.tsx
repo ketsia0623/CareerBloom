@@ -19,6 +19,7 @@ interface Suggestions {
 }
 
 const NewSimpleQuizResults: React.FC<NewSimpleQuizResultsProps> = ({ navigateTo }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [quizAnswers, setQuizAnswers] = useState<{ [key: string]: string }>({});
   const [suggestions, setSuggestions] = useState<Suggestions | null>(null);
   const [loading, setLoading] = useState(true);
