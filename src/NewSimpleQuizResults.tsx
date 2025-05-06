@@ -19,23 +19,21 @@ interface Suggestions {
 }
 
 const NewSimpleQuizResults: React.FC<NewSimpleQuizResultsProps> = ({ navigateTo }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [quizAnswers, setQuizAnswers] = useState<{ [key: string]: string }>({});
   const [suggestions, setSuggestions] = useState<Suggestions | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedAnswers = localStorage.getItem("simpleQuizAnswers");
+    const stored = localStorage.getItem("simpleQuizAnswers");
     const apiKey = localStorage.getItem("MYKEY");
 
-    if (storedAnswers && apiKey) {
-      const parsedAnswers = JSON.parse(storedAnswers);
-      setQuizAnswers(parsedAnswers);
+    if (stored && apiKey) {
+      const parsedAnswers = JSON.parse(stored) as Record<string, string>;
+
       const prompt = `I answered the following questions about myself: ${Object.entries(parsedAnswers)
         .map(([q, a]) => `${q}: ${a}`)
         .join("; ")}.
 
-Respond with a strict JSON object with the following keys:
+Using this information, choose ONLY one single best career for me and respond strictly in JSON with these keys:
 {
   "strengthsAtmosphere": "...",
   "best_career": "...",
@@ -43,7 +41,16 @@ Respond with a strict JSON object with the following keys:
   "salaryRange": "...",
   "topCompanies": "...",
   "nextSteps": "..."
-}`;
+}
+
+Instructions:
+- "strengthsAtmosphere": Write a detailed paragraph (2-3 sentences) outlining my core strengths and ideal work environment.
+- "best_career": Provide a single clear career title.
+- "reason": Write a detailed paragraph (2-3 sentences) explaining why this career aligns with my profile.
+- "salaryRange": Provide a concise paragraph stating a realistic salary range for this career.
+- "topCompanies": Write a paragraph listing five leading companies hiring for this role, each with a one-sentence descriptor.
+- "nextSteps": Write a detailed paragraph outlining actionable next steps (degrees, certifications, skills).`;
+
       fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
         headers: {
@@ -57,7 +64,9 @@ Respond with a strict JSON object with the following keys:
           try {
             const parsed: Suggestions = JSON.parse(data.choices?.[0]?.message?.content || "{}");
             setSuggestions(parsed);
-          } catch (e) { console.error("Failed to parse suggestions JSON", e); }
+          } catch (e) {
+            console.error("Failed to parse suggestions JSON", e);
+          }
           setLoading(false);
         })
         .catch((err) => { console.error("Error fetching from OpenAI:", err); setLoading(false); });
