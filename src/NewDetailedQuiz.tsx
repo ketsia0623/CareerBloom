@@ -26,11 +26,10 @@ import sakura from "./flowa.png"; // just the flower
 import petals from "./falldown.gif"; // the falling petals
 
 const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
-  const [answers, setAnswers] = useState<string[]>(new Array(7).fill(""));
-  const [questionAnswered, setQuestionAnswered] = useState<boolean[]>(new Array(7).fill(false));
+  const [answers, setAnswers] = useState<string[]>(new Array(10).fill(""));
+  const [questionAnswered, setQuestionAnswered] = useState<boolean[]>(new Array(10).fill(false));
   const [showModal, setShowModal] = useState(false);
   const [activities, setActivities] = useState<string[]>([]);
-
 
   const handleAnswer = (questionIndex: number, value: string) => {
     const updatedAnswers = [...answers];
@@ -43,26 +42,22 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
     setQuestionAnswered(updatedQuestionAnswered);
   };
 
-  // checkbox question handler
   const toggleActivity = (activity: string, checked: boolean) => {
     if (checked) {
-      setActivities([...activities, activity]);
-      
-      // Mark question 3 (index 2) as answered when at least one activity is selected
+      const updated = [...activities, activity];
+      setActivities(updated);
       if (activities.length === 0) {
-        const updatedQuestionAnswered = [...questionAnswered];
-        updatedQuestionAnswered[2] = true;
-        setQuestionAnswered(updatedQuestionAnswered);
+        const updatedQA = [...questionAnswered];
+        updatedQA[2] = true;
+        setQuestionAnswered(updatedQA);
       }
     } else {
-      const updatedActivities = activities.filter((a) => a !== activity);
-      setActivities(updatedActivities);
-      
-      // Mark question 3 as unanswered if no activities are selected
-      if (updatedActivities.length === 0) {
-        const updatedQuestionAnswered = [...questionAnswered];
-        updatedQuestionAnswered[2] = false;
-        setQuestionAnswered(updatedQuestionAnswered);
+      const updated = activities.filter((a) => a !== activity);
+      setActivities(updated);
+      if (updated.length === 0) {
+        const updatedQA = [...questionAnswered];
+        updatedQA[2] = false;
+        setQuestionAnswered(updatedQA);
       }
     }
   };
@@ -75,67 +70,37 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
     }
   }, [progress, showModal]);
 
-  // Handler for modal close button
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
   return (
     <Container fluid className="main-container">
-      {/* Falling Petals Background */}
       <div className="falling-petals">
         <img src={petals} alt="Falling petals" className="petals-image" />
       </div>
 
-      {/* Navigation Bar */}
       <div className="navigation-bar">
         <div className="text-center">
-          {/* Header with images on both sides */}
           <div className="header-container">
-            {/* Left sakura */}
             <img src={sakura} alt="sakura left" className="sakura-image" />
-            
-            {/* Title */}
-            <Navbar.Brand className="navbar-brand">
-              Find Your Career!
-            </Navbar.Brand>
-            
-            {/* Right sakura */}
+            <Navbar.Brand className="navbar-brand">Find Your Career!</Navbar.Brand>
             <img src={sakura} alt="sakura right" className="sakura-image" />
           </div>
-          
           <Nav className="justify-content-center">
-            <Nav.Link href="#" onClick={(e) => { e.preventDefault(); navigateTo("home"); }} className="nav-link">
-              Home
-            </Nav.Link>
-            <Nav.Link href="#" onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }} className="nav-link">
-              Simple
-            </Nav.Link>
-            <Nav.Link href="#" onClick={(e) => { e.preventDefault(); navigateTo("detailed-quiz"); }} className="nav-link">
-              Detailed
-            </Nav.Link>
-            <Nav.Link href="#" onClick={(e) => { e.preventDefault(); navigateTo("about-us"); }} className="nav-link">
-              About Us
-            </Nav.Link>
+            <Nav.Link href="#" onClick={(e) => { e.preventDefault(); navigateTo("home"); }} className="nav-link">Home</Nav.Link>
+            <Nav.Link href="#" onClick={(e) => { e.preventDefault(); navigateTo("simple-quiz"); }} className="nav-link">Simple</Nav.Link>
+            <Nav.Link href="#" onClick={(e) => { e.preventDefault(); navigateTo("detailed-quiz"); }} className="nav-link">Detailed</Nav.Link>
+            <Nav.Link href="#" onClick={(e) => { e.preventDefault(); navigateTo("about-us"); }} className="nav-link">About Us</Nav.Link>
           </Nav>
         </div>
       </div>
 
-      {/* Fixed Progress Bar - Now positioned with fixed positioning */}
       <div className="fixed-progress-container">
-        <ProgressBar 
-          now={progress} 
-          label={`${Math.round(progress)}%`} 
-          className="quiz-progress"
-        />
+        <ProgressBar now={progress} label={`${Math.round(progress)}%`} className="quiz-progress" />
       </div>
 
-      {/* Modal Notification with Close Button Functionality */}
-      <Modal 
-        show={showModal} 
-        onHide={handleCloseModal} 
-        className="result-modal"
-      >
+      <Modal show={showModal} onHide={handleCloseModal} className="result-modal">
         <Modal.Header closeButton>
           <Modal.Title>🎉 You Finished the Quiz!</Modal.Title>
         </Modal.Header>
@@ -143,14 +108,19 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
           <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Close
-          </Button>
-          <Button className="custom-button" onClick={() => navigateTo("detailed-quiz-results")}>
+          <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
+          <Button
+            className="custom-button"
+            onClick={() => {
+              localStorage.setItem("detailedQuizAnswers", JSON.stringify(answers));
+              navigateTo("detailed-quiz-results");
+            }}
+          >
             See Results
           </Button>
         </Modal.Footer>
       </Modal>
+
       
       {/* Quiz Content - Added top padding to accommodate fixed progress bar */}
       <div className="main-content quiz-content-with-fixed-progress">
