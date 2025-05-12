@@ -121,16 +121,42 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
         </div>
       </div>
 
-      {/* Fixed Progress Bar - Now positioned with fixed positioning */}
-      <div className="fixed-progress-container">
-        <ProgressBar 
-          now={progress} 
-          label={`${Math.round(progress)}%`} 
-          className="quiz-progress"
-        />
-      </div>
+      {/* Fixed Progress Bar at top of screen */}
+         <div
+     style={{
+       position: "fixed",
+       top: "180px",  // Adjust this value to match the height of your navbar
+       left: 0,
+       right: 0,
+       zIndex: 1040,
+       padding: "10px 0",
+     }}
+   >
+     <ProgressBar
+       now={progress}
+       label={`${Math.round(progress)}%`}
+       style={{
+         backgroundColor: "White",
+         height: "25px",
+       }}
+       variant="danger"
+       animated
+     >
+       <div
+         className="progress-bar"
+         role="progressbar"
+         style={{
+           width: `${progress}%`,
+           backgroundColor: "#e91e63", 
+         }}
+       >
+         {`${Math.round(progress)}%`}
+       </div>
+     </ProgressBar>
+   </div>
 
       {/* Modal Notification with Close Button Functionality */}
+      <div style={{ marginTop: "30px" }}></div>
       <Modal 
         show={showModal} 
         onHide={handleCloseModal} 
