@@ -108,7 +108,7 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
       <div
   style={{
     position: "fixed",
-    top: "180px",  // Adjust this value to match the height of your navbar
+    top: "180px",  
     left: 0,
     right: 0,
     zIndex: 1040,
