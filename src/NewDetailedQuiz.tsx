@@ -24,6 +24,7 @@ import detailedQ9 from "./images/detailed-q9.jpg";
 import detailedQ10 from "./images/detailed-q10.jpg";
 import sakura from "./flowa.png"; // just the flower
 import petals from "./falldown.gif"; // the falling petals
+import confetti from "canvas-confetti";
 
 const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [answers, setAnswers] = useState<string[]>(new Array(10).fill(""));
@@ -64,11 +65,43 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
 
   const progress = (questionAnswered.filter(Boolean).length / 10) * 100;
 
-  useEffect(() => {
-    if (progress === 100 && !showModal) {
-      setShowModal(true);
-    }
-  }, [progress, showModal]);
+ useEffect(() => {
+     const launchConfetti = () => {
+       const duration = 2 * 1000;
+       const animationEnd = Date.now() + duration;
+   
+       const interval: any = setInterval(() => {
+         const timeLeft = animationEnd - Date.now();
+   
+         if (timeLeft <= 0) {
+           return clearInterval(interval);
+         }
+ 
+         confetti({
+           particleCount: 100,  // Number of confetti particles
+           spread: 180,          // Widen the spread
+           origin: { y: 0.5 },   // Origin from the center of the top
+           angle: 90,            // Horizontal burst
+           scalar: 1.2,          // Increase the size of the confetti
+           shapes: ['circle'],   // Confetti shape as circle
+           colors: [
+             "#ff66b2",  // Light pink
+             "#ff3399",  // Hot pink
+             "#ff1a8c",  // Deep pink
+             "#ff80bf",  // Soft pink
+             "#ff4d94",  // Medium pink
+           ],
+         });
+       }, 250);
+     };
+   
+     if (progress === 100 && !showModal) {
+       localStorage.setItem("simpleQuizAnswers", JSON.stringify(setAnswers));
+       setShowModal(true);
+       launchConfetti(); // 🎉 Pop the confetti
+     }
+   }, [progress, showModal, setAnswers]);
+ 
 
   const handleCloseModal = () => {
     setShowModal(false);
