@@ -182,9 +182,6 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
             <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
-              Close
-            </Button>
             <Button variant="primary" onClick={() => navigateTo("simple-quiz-results")} className="custom-button">
               See Results
             </Button>
