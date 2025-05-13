@@ -181,7 +181,7 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
           <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>Close</Button>
+         
           <Button
             className="custom-button"
             onClick={() => {
