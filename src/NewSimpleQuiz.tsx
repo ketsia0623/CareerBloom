@@ -17,6 +17,7 @@ import simpleQ7 from "./images/simple-q7.png";
 import simpleQ8 from "./images/simple-q8.jpg";
 import simpleQ9 from "./images/simple-q9.jpg";
 import simpleQ10 from "./images/simple-q10.jpg";
+import confetti from "canvas-confetti";
 
 const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void }) => {
   const [answers, setAnswers] = useState<number>(0);
@@ -40,9 +41,39 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
   const progress = (answers / 10) * 100;
 
   useEffect(() => {
+    const launchConfetti = () => {
+      const duration = 2 * 1000;
+      const animationEnd = Date.now() + duration;
+  
+      const interval: any = setInterval(() => {
+        const timeLeft = animationEnd - Date.now();
+  
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        confetti({
+          particleCount: 100,  // Number of confetti particles
+          spread: 180,          // Widen the spread
+          origin: { y: 0.5 },   // Origin from the center of the top
+          angle: 90,            // Horizontal burst
+          scalar: 1.2,          // Increase the size of the confetti
+          shapes: ['circle'],   // Confetti shape as circle
+          colors: [
+            "#ff66b2",  // Light pink
+            "#ff3399",  // Hot pink
+            "#ff1a8c",  // Deep pink
+            "#ff80bf",  // Soft pink
+            "#ff4d94",  // Medium pink
+          ],
+        });
+      }, 250);
+    };
+  
     if (progress === 100 && !showModal) {
       localStorage.setItem("simpleQuizAnswers", JSON.stringify(userAnswers));
       setShowModal(true);
+      launchConfetti(); // 🎉 Pop the confetti
     }
   }, [progress, showModal, userAnswers]);
 
