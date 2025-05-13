@@ -130,39 +130,41 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
       </div>
 
 
-      {/* Fixed Progress Bar at top of screen */}
-         <div
-     style={{
-       position: "fixed",
-       top: "180px",  // Adjust this value to match the height of your navbar
-       left: 0,
-       right: 0,
-       zIndex: 1040,
-       padding: "10px 0",
-     }}
-   >
-     <ProgressBar
-       now={progress}
-       label={`${Math.round(progress)}%`}
+        {/* Fixed Progress Bar at the top of the screen */}
+     <div
        style={{
-         backgroundColor: "White",
-         height: "25px",
+         position: "fixed",  // Ensure it stays fixed at the top
+         top: 0,             // Keep it at the very top of the screen
+         left: 0,
+         right: 0,
+         zIndex: 1040,       // Ensure it's above other content
+         padding: "10px 0",
+         backgroundColor: "#FFF4F2", // To make sure it's not see-through
+         boxShadow: "0 4px 2px -2px gray", 
        }}
-       variant="danger"
-       animated
      >
-       <div
-         className="progress-bar"
-         role="progressbar"
+       <ProgressBar
+         now={progress}
+         label={`${Math.round(progress)}%`}
          style={{
-           width: `${progress}%`,
-           backgroundColor: "#e91e63", 
+           backgroundColor: "#FFF4F2",
+           height: "15px",
          }}
+         variant="danger"
+         animated
        >
-         {`${Math.round(progress)}%`}
-       </div>
-     </ProgressBar>
-   </div>
+         <div
+           className="progress-bar"
+           role="progressbar"
+           style={{
+             width: `${progress}%`,
+             backgroundColor: "#e91e63", 
+           }}
+         >
+           {`${Math.round(progress)}%`}
+         </div>
+       </ProgressBar>
+     </div>
 
       {/* Modal Notification with Close Button Functionality */}
       <div style={{ marginTop: "30px" }}></div>

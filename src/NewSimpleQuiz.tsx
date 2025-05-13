@@ -135,23 +135,25 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
         </div>
       </div>
 
-      {/* Fixed Progress Bar at top of screen */}
-      <div
+   {/* Fixed Progress Bar at the top of the screen */}
+<div
   style={{
-    position: "fixed",
-    top: "180px",  
+    position: "fixed",  // Ensure it stays fixed at the top
+    top: 0,             // Keep it at the very top of the screen
     left: 0,
     right: 0,
-    zIndex: 1040,
+    zIndex: 1040,       // Ensure it's above other content
     padding: "10px 0",
+    backgroundColor: "#FFF4F2", // To make sure it's not see-through
+    boxShadow: "0 4px 2px -2px gray", 
   }}
 >
   <ProgressBar
     now={progress}
     label={`${Math.round(progress)}%`}
     style={{
-      backgroundColor: "White",
-      height: "25px",
+      backgroundColor: "#FFF4F2",
+      height: "15px",
     }}
     variant="danger"
     animated
