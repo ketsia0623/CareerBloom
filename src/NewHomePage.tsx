@@ -4,6 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import sakura from "./flowa.png";
 import petals from "./falldown.gif";
 import "./NewHomePage.css";
+import Parallax  from "./components/Parallax";
+import bottomImage from "./b.png"; 
+import middleImage from "./mid.png";
+import topImage from "./t.png";
 
 const saveKeyData = "MYKEY";
 let keyData = "";
@@ -32,7 +36,10 @@ const NewHomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => 
   };
 
   return (
+
     <Container fluid className="main-container">
+
+
       {/* Falling Petals GIF Background */}
       <div className="falling-petals">
         <img 
@@ -41,6 +48,8 @@ const NewHomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => 
           className="petals-image" 
         />
       </div>
+
+
 
       {/* Navigation Bar */}
       <div className="navigation-bar">
@@ -85,11 +94,21 @@ const NewHomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => 
         </div>
       </div>
 
+      <div className="scrolling">
+        <Parallax 
+        bottomImage={bottomImage}
+        middleImage={middleImage}
+        topImage={topImage}
+      />
+      </div>
+
+
+
       {/* Main Content */}
       <div className="main-content text-center">
         {/* About Section */}
         <Row className="mb-4">
-            <Card.Title className="card-title">Welcome to Career Matcher!</Card.Title>
+            <Card.Title className="card-title">Welcome to Career Bloom!</Card.Title>
             <div className="card-text">
               <p>
                 Choosing the right career can feel overwhelming, but we're here to help! Our career quiz is designed to guide you toward a profession that matches your skills, interests, and personality.
@@ -98,7 +117,7 @@ const NewHomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => 
                 Based on well-researched questions and career assessments, we analyze your responses to provide personalized career suggestions. Whether you're exploring options or looking for clarity, our quiz helps you discover paths that align with your strengths and passions.
               </p>
               <p>
-                Start today and take the first step toward your future!
+                Start today and spring into the future!
               </p>
             </div>
         </Row>

@@ -436,3 +436,13 @@
     height: 10px;
     transition: width 0.
   }
+
+
+.scrolling {
+    background-color: #AECFCE;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
