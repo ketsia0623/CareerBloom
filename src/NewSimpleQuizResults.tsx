@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Spinner, Container, Row, Col, Button, Navbar, Nav } from "react-bootstrap";
+import { Card, Spinner, Container, Row, Col, Button, Navbar, Nav, ListGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import sakura from "./flowa.png";
 import petals from "./falldown.gif";
@@ -22,6 +22,11 @@ const NewSimpleQuizResults: React.FC<NewSimpleQuizResultsProps> = ({ navigateTo 
   const [suggestions, setSuggestions] = useState<Suggestions | null>(null);
   const [loading, setLoading] = useState(true);
 
+/*--------------------------------*/
+  const [showAnswers, setShowAnswers] = useState(false);
+  const storedAnswers = localStorage.getItem("simpleQuizAnswers");
+  const parsedAnswers: Record<string, string> = storedAnswers ? JSON.parse(storedAnswers) : {};
+/*------------------------------*/
   useEffect(() => {
     const stored = localStorage.getItem("simpleQuizAnswers");
     const apiKey = localStorage.getItem("MYKEY");
@@ -155,6 +160,35 @@ Instructions:
             <div className="text-center mt-4">
               <Button className="custom-button" onClick={() => navigateTo("home")}>⬅️ Take Another Quiz</Button>
             </div>
+
+            <div className="text-center mt-3">
+              <Button variant="outline-secondary" onClick={() => setShowAnswers(!showAnswers)}>
+                {showAnswers ? "🙈 Hide Quiz Answers" : "📄 View Quiz Answers"}
+              </Button>
+            </div>
+
+            {showAnswers && (
+              <Card className="p-4 shadow-sm mt-4">
+                <h5 className="fw-semibold card-title mb-3">📋 Your Simple Quiz Answers</h5>
+                <ListGroup variant="flush">
+                  {Object.entries(parsedAnswers).map(([question, answer], index) => (
+                    <ListGroup.Item
+                      key={index}
+                      className="py-3 bg-light"
+                      style={{
+                        borderRadius: "8px",
+                        marginBottom: "8px",
+                        borderColor: "#ffcce6",
+                      }}
+                    >
+                      <strong className="card-title">{question}:</strong>{" "}
+                      <span className="card-text">{answer}</span>
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              </Card>
+            )}
+
           </>
         )}
       </div>

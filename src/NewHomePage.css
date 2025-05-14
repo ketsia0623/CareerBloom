@@ -38,16 +38,20 @@
   }
   
   .navbar-brand {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: bold;
     color: #ff66b2;
     cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
   .nav-link {
+    font-size: 1.2rem;
     color: #ff66b2;
     font-weight: 500;
     margin: 0 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: .1rem;
   }
   
   /* Header Container */
