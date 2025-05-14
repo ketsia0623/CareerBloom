@@ -4,6 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import sakura from "./flowa.png";
 import petals from "./falldown.gif";
 import "./NewHomePage.css";
+import Parallax  from "./components/Parallax";
+import bottomImage from "./b.png"; 
+import middleImage from "./mid.png";
+import topImage from "./t.png";
 
 const saveKeyData = "MYKEY";
 let keyData = "";
@@ -32,7 +36,10 @@ const NewHomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => 
   };
 
   return (
+
     <Container fluid className="main-container">
+
+
       {/* Falling Petals GIF Background */}
       <div className="falling-petals">
         <img 
@@ -41,6 +48,8 @@ const NewHomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => 
           className="petals-image" 
         />
       </div>
+
+
 
       {/* Navigation Bar */}
       <div className="navigation-bar">
@@ -83,6 +92,16 @@ const NewHomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => 
           </Nav>
         </div>
       </div>
+
+      <div className="main-content text-center">
+        <Parallax 
+        bottomImage={bottomImage}
+        middleImage={middleImage}
+        topImage={topImage}
+      />
+      </div>
+
+
 
       {/* Main Content */}
       <div className="main-content text-center">
