@@ -5,7 +5,6 @@
   overflow: hidden;
   margin: 20px 0;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .parallax-layer {
@@ -26,13 +25,14 @@
 }
 
 /* not actually the middle layer */
+/* changed it to put the petals on top */
 .middle-layer { 
   z-index: 3;
 }
 
 .top-layer {
   z-index: 2;
-  height: 2000px
+  height: 2000px;
 }
 
 @media (max-width: 768px) {
