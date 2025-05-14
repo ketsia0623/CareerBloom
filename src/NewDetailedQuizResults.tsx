@@ -50,7 +50,7 @@ Instructions:
 - "strengthsAtmosphere": Write a **well-developed** paragraph describing the user’s strengths, values, and ideal work environment.
 - "best_career": Provide a **precise job title** that reflects the user’s input.
 - "reason": Offer a **thorough explanation** (3-5 sentences) explaining why this career aligns with the user's strengths and preferences.
-- "salaryRange": Provide a realistic and geographically neutral **salary range** for someone entering or progressing in this career.
+- "salaryRange": Provide a realistic and geographically neutral **salary range** for someone entering or progressing in this career. Explain a bit more on the highs and lows too.
 - "topCompanies": List 5 **specific companies** hiring for this role, including a short one-line description for each.
 - "nextSteps": Give an **actionable roadmap** for entering the career — include relevant degrees, certifications, skills, and suggested tools.
 - "dayInLife": Create a **descriptive summary** of what a typical day looks like in this career (tasks, work rhythm, environment).
@@ -81,7 +81,7 @@ Keep each section professional and insightful. Make the response helpful for som
     }
   }, []);
 
-  const pinkShades = ['#ffe6f2', '#ffccd9', '#ffb3c2', '#ff99ac', '#ff80a6'];
+  const pinkShades = ['#ffe6f2', '#ffccd9', '#ffb3c2', '#ff99ac', '#ff80a6', '#ff668c'];
   const sectionData = suggestions
     ? [
         { title: 'Strengths & Atmosphere', content: suggestions.strengthsAtmosphere },
