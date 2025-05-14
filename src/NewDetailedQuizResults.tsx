@@ -89,6 +89,7 @@ Keep each section professional and insightful. Make the response helpful for som
         { title: 'Salary Range', content: suggestions.salaryRange },
         { title: 'Top Companies', content: suggestions.topCompanies },
         { title: 'Next Steps', content: suggestions.nextSteps },
+        { title: 'A Day in the Life', content: suggestions.dayInLife }
       ]
     : [];
 
@@ -154,6 +155,7 @@ Keep each section professional and insightful. Make the response helpful for som
                 </Col>
               ))}
             </Row>
+            
 
             <div className="text-center mt-4">
               <Button className="custom-button" onClick={() => navigateTo("home")}>⬅️ Take Another Quiz</Button>
