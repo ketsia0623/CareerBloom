@@ -117,7 +117,10 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
         <div className="text-center">
           <div className="header-container">
             <img src={sakura} alt="sakura left" className="sakura-image" />
-            <Navbar.Brand className="navbar-brand">Find Your Career!</Navbar.Brand>
+            {/* Title */}
+                       <Navbar.Brand className="navbar-brand" style={{ fontSize: '3rem' }}>
+                         Career Bloom
+                       </Navbar.Brand>
             <img src={sakura} alt="sakura right" className="sakura-image" />
           </div>
           <Nav className="justify-content-center">
