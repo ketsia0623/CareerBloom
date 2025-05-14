@@ -174,19 +174,20 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
       {/* Main Content - Added padding to account for fixed progress bar */}
       <div style={{ marginTop: "30px" }}></div>
       <div className="main-content quiz-content-with-fixed-progress">
-        <Modal show={showModal} onHide={handleCloseModal} className="result-modal">
-          <Modal.Header closeButton>
-            <Modal.Title>🎉 You Finished the Quiz!</Modal.Title>
-          </Modal.Header>
-          <Modal.Body> 
-            <p>Congrats! You have completed the quiz. Click the button below to see your results.</p>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" onClick={() => navigateTo("simple-quiz-results")} className="custom-button">
-              See Results
-            </Button>
-          </Modal.Footer>
-        </Modal>
+      <Modal show={showModal} onHide={handleCloseModal} className="result-modal" backdrop="static" keyboard={false}>
+  <Modal.Header>
+    <Modal.Title>🎉 You Finished the Quiz!</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <p>Congrats! You have completed the quiz. Click the button below to see your results, or review your answers.</p>
+  </Modal.Body>
+  <Modal.Footer>
+  
+    <Button variant="primary" onClick={() => navigateTo("simple-quiz-results")} className="custom-button">
+      See Results
+    </Button>
+  </Modal.Footer>
+</Modal>
 
         <Card className="quiz-card">
           <Card.Body>
