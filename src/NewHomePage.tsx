@@ -64,9 +64,10 @@ const NewHomePage = ({ navigateTo }: { navigateTo: (page: string) => void }) => 
             />
             
             {/* Title */}
-            <Navbar.Brand className="navbar-brand">
-              Find Your Career!
-            </Navbar.Brand>
+        
+                      <Navbar.Brand className="navbar-brand" style={{ fontSize: '3rem' }}>
+                        Career Bloom
+                      </Navbar.Brand>
             
             {/* Right sakura */}
             <img 
