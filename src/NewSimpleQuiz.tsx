@@ -173,7 +173,7 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
 
       {/* Main Content - Added padding to account for fixed progress bar */}
       <div style={{ marginTop: "30px" }}></div>
-      <div className="main-content quiz-content-with-fixed-progress">
+
       <Modal show={showModal} onHide={handleCloseModal} className="result-modal" backdrop="static" keyboard={false}>
   <Modal.Header>
     <Modal.Title>🎉 You Finished the Quiz!</Modal.Title>
@@ -188,10 +188,14 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
     </Button>
   </Modal.Footer>
 </Modal>
-
-        <Card className="quiz-card">
-          <Card.Body>
-            <Card.Title className="card-title">Simple Career Quiz</Card.Title>
+  
+      <div className="main-content quiz-content-with-fixed-progress">
+              <Card.Title className="card-title text-center" style={{ fontSize: "1.7rem", marginBottom: ".5rem" }}>
+                  Simple Career Quiz
+              </Card.Title>
+            <p className="card-text text-center mb-4" style={{ fontSize: "1.2rem" }}>
+                Take this simple career assessment to discover career paths that may align with your interests, values, and skills.
+            </p>
 
             {/* Question 1 */}
             <Card className="question-card">
@@ -352,8 +356,8 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
                 <Form.Check type="radio" label="🛡️ Improve people's lives directly" name="q10" onChange={() => handleAnswer(9, "Improve people's lives directly")} />
               </Form>
             </Card>
-          </Card.Body>
-        </Card>
+          
+       
       </div>
 
       {/* Footer Section */}

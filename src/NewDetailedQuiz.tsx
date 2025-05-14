@@ -197,7 +197,7 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
       </Modal>
 
       
-      {/* Quiz Questions */}
+      {/* Quiz Questions Content*/}
       <div className="main-content quiz-content-with-fixed-progress">
         <Card.Title className="card-title text-center" style={{ fontSize: "1.7rem", marginBottom: ".5rem" }}>Detailed Career Quiz</Card.Title>
         <p className="card-text text-center mb-4" style={{ fontSize: "1.2rem"}}>
