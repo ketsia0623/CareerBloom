@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Spinner, Container, Row, Col, Button, Navbar, Nav } from "react-bootstrap";
+import { Card, Spinner, Container, Row, Col, Button, Navbar, Nav, ListGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import sakura from "./flowa.png";
 import petals from "./falldown.gif";
@@ -21,6 +21,9 @@ interface Suggestions {
 const NewDetailedQuizResults: React.FC<NewDetailedQuizResultsProps> = ({ navigateTo }) => {
   const [suggestions, setSuggestions] = useState<Suggestions | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showAnswers, setShowAnswers] = useState(false);
+  const storedAnswers = localStorage.getItem("detailedQuizAnswers");
+  const parsedAnswers: string[] = storedAnswers ? JSON.parse(storedAnswers) : [];
 
   useEffect(() => {
     const stored = localStorage.getItem("detailedQuizAnswers");
@@ -93,10 +96,9 @@ Instructions:
         <div className="text-center">
           <div className="header-container">
             <img src={sakura} alt="sakura left" className="sakura-image" />
-              {/* Title */}
-                                  <Navbar.Brand className="navbar-brand" style={{ fontSize: '3rem' }}>
-                                    Career Bloom
-                                  </Navbar.Brand>
+            <Navbar.Brand className="navbar-brand" style={{ fontSize: '3rem' }}>
+              Career Bloom
+            </Navbar.Brand>
             <img src={sakura} alt="sakura right" className="sakura-image" />
           </div>
           <Nav className="justify-content-center">
@@ -127,7 +129,6 @@ Instructions:
           </div>
         ) : (
           <>
-            {/* First row: 3 cards */}
             <Row className="g-4">
               {sectionData.slice(0, 3).map((section, idx) => (
                 <Col key={idx} md={4} className="d-flex">
@@ -138,7 +139,6 @@ Instructions:
                 </Col>
               ))}
             </Row>
-            {/* Second row: 2 cards centered */}
             <Row className="g-4 justify-content-center mt-0">
               {sectionData.slice(3).map((section, idx) => (
                 <Col key={idx} md={4} className="d-flex">
@@ -151,10 +151,36 @@ Instructions:
             </Row>
 
             <div className="text-center mt-4">
-              <Button className="custom-button" onClick={() => navigateTo("home")}>
-                ⬅️ Take Another Quiz
+              <Button className="custom-button" onClick={() => navigateTo("home")}>⬅️ Take Another Quiz</Button>
+            </div>
+
+            <div className="text-center mt-3">
+              <Button variant="outline-secondary" onClick={() => setShowAnswers(!showAnswers)}>
+                {showAnswers ? "🙈 Hide Quiz Answers" : "📄 View Quiz Answers"}
               </Button>
             </div>
+
+            {showAnswers && (
+              <Card className="p-4 shadow-sm mt-4">
+                <h5 className="fw-semibold card-title mb-3">📋 Your Detailed Quiz Answers</h5>
+                <ListGroup variant="flush">
+                  {parsedAnswers.map((answer, index) => (
+                    <ListGroup.Item
+                      key={index}
+                      className="py-3 bg-light"
+                      style={{
+                        borderRadius: "8px",
+                        marginBottom: "8px",
+                        borderColor: "#ffcce6",
+                      }}
+                    >
+                      <strong className="card-title">Question {index + 1}:</strong>{" "}
+                      <span className="card-text">{answer}</span>
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              </Card>
+            )}
           </>
         )}
       </div>
