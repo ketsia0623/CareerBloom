@@ -42,15 +42,19 @@ Using this information, choose ONLY one single best career for me and respond st
   "salaryRange": "...",
   "topCompanies": "...",
   "nextSteps": "..."
+  "dayInTheLife": "..."
 }
 
 Instructions:
-- "strengthsAtmosphere": Write a detailed paragraph (2-3 sentences) outlining my core strengths and ideal work environment.
-- "best_career": Provide a single clear career title.
-- "reason": Write a detailed paragraph (2-3 sentences) explaining why this career aligns with my profile.
-- "salaryRange": Provide a concise paragraph stating a realistic salary range for this career.
-- "topCompanies": Write a paragraph listing five leading companies hiring for this role, each with a one-sentence descriptor.
-- "nextSteps": Write a detailed paragraph outlining actionable next steps (degrees, certifications, skills).`;
+- "strengthsAtmosphere": Write a **well-developed** paragraph describing the user’s strengths, values, and ideal work environment.
+- "best_career": Provide a **precise job title** that reflects the user’s input.
+- "reason": Offer a **thorough explanation** (3-5 sentences) explaining why this career aligns with the user's strengths and preferences.
+- "salaryRange": Provide a realistic and geographically neutral **salary range** for someone entering or progressing in this career.
+- "topCompanies": List 5 **specific companies** hiring for this role, including a short one-line description for each.
+- "nextSteps": Give an **actionable roadmap** for entering the career — include relevant degrees, certifications, skills, and suggested tools.
+- "dayInTheLife": Create a **descriptive summary** of what a typical day looks like in this career (tasks, work rhythm, environment).
+
+Keep each section professional and insightful. Make the response helpful for someone making real-world career decisions.`;
 
       fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
