@@ -146,14 +146,14 @@ Keep each section professional and insightful. Make the response helpful for som
               ))}
             </Row>
             <Row className="g-4 justify-content-center mt-0">
-              {sectionData.slice(3).map((section, idx) => (
-                <Col key={idx} md={4} className="d-flex">
-                  <Card className="h-100 w-100 p-3 shadow-sm" style={{ backgroundColor: pinkShades[idx + 3] }}>
-                    <h5 className="fw-semibold mb-2">{section.title}</h5>
-                    <p style={{ whiteSpace: 'pre-wrap' }}>{section.content}</p>
-                  </Card>
-                </Col>
-              ))}
+            {sectionData.slice(3).map((section, idx) => (
+              <Col key={idx} md={4} className="d-flex">
+                <Card className="h-100 w-100 p-3 shadow-sm" style={{ backgroundColor: pinkShades[idx + 3] }}>
+                  <h5 className="fw-semibold mb-2">{section.title}</h5>
+                  <p style={{ whiteSpace: 'pre-wrap' }}>{section.content}</p>
+                </Card>
+              </Col>
+            ))}
             </Row>
             
 
