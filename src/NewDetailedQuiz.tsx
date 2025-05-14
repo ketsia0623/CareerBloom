@@ -197,10 +197,10 @@ const NewDetailedQuizPage = ({ navigateTo }: { navigateTo: (page: string) => voi
       </Modal>
 
       
-      {/* Quiz Content - Added top padding to accommodate fixed progress bar */}
+      {/* Quiz Questions */}
       <div className="main-content quiz-content-with-fixed-progress">
-        <Card.Title className="card-title text-center">Detailed Career Quiz</Card.Title>
-        <p className="card-text text-center mb-4">
+        <Card.Title className="card-title text-center" style={{ fontSize: "1.7rem", marginBottom: ".5rem" }}>Detailed Career Quiz</Card.Title>
+        <p className="card-text text-center mb-4" style={{ fontSize: "1.2rem"}}>
           Take this comprehensive assessment to discover career paths that align with your skills, interests, and values.
         </p>
 
