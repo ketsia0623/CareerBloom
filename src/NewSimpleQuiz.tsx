@@ -105,10 +105,10 @@ const NewSimpleQuizPage = ({ navigateTo }: { navigateTo: (page: string) => void 
               className="sakura-image"
             />
             
-            {/* Title */}
-            <Navbar.Brand className="navbar-brand">
-              Find Your Career!
-            </Navbar.Brand>
+           {/* Title */}
+                      <Navbar.Brand className="navbar-brand" style={{ fontSize: '3rem' }}>
+                        Career Bloom
+                      </Navbar.Brand>
             
             {/* Right sakura */}
             <img 
