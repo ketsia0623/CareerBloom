@@ -1,12 +1,14 @@
 {
 
-  "name": "starter_helpi",
 
+  "name": "career-bloom",
   "version": "0.1.0",
-
-   "homepage": "https://ketsia0623.github.io/CareerBloom/",
-
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ketsia0623/CareerBloom.git"
+  },
   "private": true,
+
 
   "dependencies": {
 
