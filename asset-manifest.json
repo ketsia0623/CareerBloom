@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/your-repo-name/static/css/main.a5b96cd6.css",
+    "main.js": "/your-repo-name/static/js/main.d2519036.js",
+    "static/js/453.bad6c33a.chunk.js": "/your-repo-name/static/js/453.bad6c33a.chunk.js",
+    "static/media/t.png": "/your-repo-name/static/media/t.d0bb2578da084020544d.png",
+    "static/media/b.png": "/your-repo-name/static/media/b.c118658a6b3f75382764.png",
+    "static/media/detailed-q6.jpg": "/your-repo-name/static/media/detailed-q6.3ade839d7f2f691cc640.jpg",
+    "static/media/simple-q8.jpg": "/your-repo-name/static/media/simple-q8.7161ddb956a8dfed57b9.jpg",
+    "static/media/mid.png": "/your-repo-name/static/media/mid.05ba25df705dc628c9c8.png",
+    "static/media/detailed-q2.jpg": "/your-repo-name/static/media/detailed-q2.51b4ca5bbae4ba12c3d0.jpg",
+    "static/media/detailed-q1.jpg": "/your-repo-name/static/media/detailed-q1.ee104a05cbe7ea1f8589.jpg",
+    "static/media/simple-q6.png": "/your-repo-name/static/media/simple-q6.11065ae51eeaa893a194.png",
+    "static/media/simple-q2.jpg": "/your-repo-name/static/media/simple-q2.3bf41f2f46bf6397ced7.jpg",
+    "static/media/simple-q3.jpg": "/your-repo-name/static/media/simple-q3.fe29585920d408986188.jpg",
+    "static/media/detailed-q4.jpg": "/your-repo-name/static/media/detailed-q4.7e9fed28cfba66f92736.jpg",
+    "static/media/flowa.png": "/your-repo-name/static/media/flowa.ce301a6806fd40125d9b.png",
+    "static/media/simple-q1.jpg": "/your-repo-name/static/media/simple-q1.2000a75d9843c0ca59bf.jpg",
+    "static/media/simple-q5.jpg": "/your-repo-name/static/media/simple-q5.e12b4803408fca067db8.jpg",
+    "static/media/detailed-q3.jpg": "/your-repo-name/static/media/detailed-q3.28db826569e04c438006.jpg",
+    "static/media/falldown.gif": "/your-repo-name/static/media/falldown.1aa7b640bec0a3711c9e.gif",
+    "static/media/simple-q4.jpg": "/your-repo-name/static/media/simple-q4.561121e47e24c07ae700.jpg",
+    "static/media/us.png": "/your-repo-name/static/media/us.5318b1d8a51d1b56d530.png",
+    "static/media/detailed-q10.jpg": "/your-repo-name/static/media/detailed-q10.d8098c3024667e067b0f.jpg",
+    "static/media/detailed-q9.jpg": "/your-repo-name/static/media/detailed-q9.9d80804780dd19469177.jpg",
+    "static/media/detailed-q8.jpg": "/your-repo-name/static/media/detailed-q8.4f59f76030022d90ca08.jpg",
+    "static/media/detailed-q5.jpg": "/your-repo-name/static/media/detailed-q5.2a8e2189b22a756201c9.jpg",
+    "static/media/simple-q9.jpg": "/your-repo-name/static/media/simple-q9.a7ef819419afd784b154.jpg",
+    "static/media/simple-q10.jpg": "/your-repo-name/static/media/simple-q10.f1ed6250ab47f08fd6e5.jpg",
+    "index.html": "/your-repo-name/index.html",
+    "main.a5b96cd6.css.map": "/your-repo-name/static/css/main.a5b96cd6.css.map",
+    "main.d2519036.js.map": "/your-repo-name/static/js/main.d2519036.js.map",
+    "453.bad6c33a.chunk.js.map": "/your-repo-name/static/js/453.bad6c33a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a5b96cd6.css",
+    "static/js/main.d2519036.js"
+  ]
+}
