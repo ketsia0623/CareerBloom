@@ -4,6 +4,8 @@
 
   "version": "0.1.0",
 
+   "homepage": "https://ketsia0623.github.io/your-repo-name",
+
   "private": true,
 
   "dependencies": {
@@ -26,7 +28,7 @@
 
     "canvas-confetti": "^1.9.3",
 
-    "gh-pages": "^6.1.1",
+    "gh-pages": "^6.3.0",
 
     "openai": "^4.26.0",
 
@@ -55,8 +57,9 @@
     "eject": "react-scripts eject",
 
     "predeploy": "npm run build",
-
+    
     "deploy": "gh-pages -d build"
+
 
   },
 
