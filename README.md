@@ -1,4 +1,4 @@
-# Getting Started with Helpi
+# Getting Started with CareerBloom
 
 Packages Included:
 * npm
